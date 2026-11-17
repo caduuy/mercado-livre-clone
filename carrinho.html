@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carrinho | Mercado Livre</title>
+<link rel="stylesheet" href="assets/css/estilo.css">
+<link rel="stylesheet" href="assets/css/loja-local.css">
+<script src="assets/js/topo-site.js"></script>
+<script src="assets/js/loja-local.js" data-root=""></script>
+</head>
+<body class="ll-body">
+<header class="ml-produto-topo-mobile">
+  <div class="ml-produto-topo-mobile-linha">
+    <a href="#" onclick="openWithWhiteSpinnerLink(this);return false;" data-href="index.html" class="ml-produto-topo-mobile-logo" aria-label="Página inicial">
+      <img src="assets/ml-handshake-transparent.png/logo01.png" alt="Mercado Livre">
+    </a>
+
+    <form class="ml-produto-topo-mobile-busca" method="get" action="busca.html">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.4"/><path d="m16 16 4.1 4.1"/></svg>
+      <input type="text" name="q" aria-label="Buscar" placeholder="Estou buscando..." value="">
+    </form>
+
+    <button class="ml-produto-topo-mobile-menu" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="ml-produto-menu">
+      <svg class="icon-hamburguer" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16M4 12h16M4 17.5h16"/></svg>
+      <svg class="icon-fechar" viewBox="0 0 24 24" aria-hidden="true" style="display:none;"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+
+    <a href="carrinho.html" class="ml-produto-topo-mobile-carrinho" aria-label="Carrinho">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3h2.5l2.1 11.2a2 2 0 0 0 2 1.6h9.1a2 2 0 0 0 1.9-1.4L21 8H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+          </a>
+  </div>
+
+  <button type="button" data-cep-trigger class="ml-produto-topo-mobile-endereco" style="background:none;border:0;border-top:1px solid rgba(0,0,0,.12);padding:0 10px 0 8px;cursor:pointer;text-align:left;width:100%;display:flex;align-items:center;gap:4px;min-width:0;overflow:hidden;">
+    <svg viewBox="0 0 24 24" aria-hidden="true" style="flex:none"><path d="M20 10c0 5.5-8 11-8 11S4 15.5 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+    <span style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block;flex:1 1 auto;">Informe seu CEP</span>
+    <svg class="ml-produto-topo-mobile-seta" viewBox="0 0 24 24" aria-hidden="true" style="flex:none"><path d="m9 18 6-6-6-6"/></svg>
+  </button>
+
+  <nav class="ml-produto-topo-mobile-painel" id="ml-produto-menu" hidden>
+    <a href="index.html" class="ml-menu-nav-item">
+      <i class="nav-icon-home"></i>
+      <span>Início</span>
+    </a>
+
+    
+        <details class="ml-menu-cats-details">
+      <summary class="ml-menu-nav-item ml-menu-cats-summary">
+        <i class="nav-icon-categories-mobile"></i>
+        <span>Categorias</span>
+        <svg class="ml-menu-cats-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#333" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </summary>
+      <div class="ml-menu-cats-lista">
+                <a href="busca/cat-eletrodom-sticos.html" class="ml-menu-cat-item">
+                      <span style="width:48px;height:48px;flex-shrink:0;border-radius:6px;background:#f5f5f5;display:inline-block;"></span>
+                    <span style="font-size:14px;color:#333;">Eletrodomésticos</span>
+        </a>
+                <a href="busca/cat-casa-m-veis-e-decora-o.html" class="ml-menu-cat-item">
+                      <span style="width:48px;height:48px;flex-shrink:0;border-radius:6px;background:#f5f5f5;display:inline-block;"></span>
+                    <span style="font-size:14px;color:#333;">Casa, Móveis e Decoração</span>
+        </a>
+                <a href="busca/cat-eletr-nicos-udio-e-v-deo.html" class="ml-menu-cat-item">
+                      <span style="width:48px;height:48px;flex-shrink:0;border-radius:6px;background:#f5f5f5;display:inline-block;"></span>
+                    <span style="font-size:14px;color:#333;">Eletrônicos, Áudio e Vídeo</span>
+        </a>
+                <a href="busca/cat-acess-rios-para-ve-culos.html" class="ml-menu-cat-item">
+                      <span style="width:48px;height:48px;flex-shrink:0;border-radius:6px;background:#f5f5f5;display:inline-block;"></span>
+                    <span style="font-size:14px;color:#333;">Acessórios para Veículos</span>
+        </a>
+                <a href="busca/cat-beb-s.html" class="ml-menu-cat-item">
+                      <span style="width:48px;height:48px;flex-shrink:0;border-radius:6px;background:#f5f5f5;display:inline-block;"></span>
+                    <span style="font-size:14px;color:#333;">Bebês</span>
+        </a>
+              </div>
+    </details>
+      </nav>
+</header>
+<header class="ml-topo ml-produto-topo-desktop">
+  <div class="ml-topo-inner">
+    <a href="#" onclick="openWithWhiteSpinnerLink(this);return false;" data-href="index.html" class="ml-logo">
+      <div class="ml-logo-icone">🤝</div>
+      <div class="ml-logo-texto">
+        <div>painel</div>
+        <div class="ml-logo-sub">livre</div>
+      </div>
+    </a>
+
+    <form class="ml-busca" method="get" action="busca.html">
+      <input type="text" name="q" placeholder="Buscar produtos, marcas e muito mais…" value="">
+      <button type="submit" aria-label="Buscar">🔍</button>
+    </form>
+
+    <div class="ml-usuario">
+              <a href="cadastro.html">Crie sua conta</a>
+        <a href="login.html">Entre</a>
+            <a href="carrinho.html" class="ml-carrinho" aria-label="Carrinho">
+        🛒      </a>
+    </div>
+  </div>
+
+  <div class="ml-cat">
+    <div class="ml-cat-inner">
+      <div style="margin-left:0;">
+      <button type="button" data-cep-trigger style="background:none;border:none;padding:0;cursor:pointer;display:flex;align-items:center;gap:4px;color:inherit;font:inherit;min-width:0;flex:0 1 auto;max-width:100%;white-space:nowrap;overflow:hidden;">
+        <span class="ml-cat-icone" style="flex:none">📍</span><span class="ml-cat-texto" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block;max-width:100%;padding-right:8px;">Informe seu CEP</span>
+      </button>
+      </div>
+      <a href="busca/cat-ofertas.html">Ofertas</a>
+              <a href="busca/cat-eletrodom-sticos.html" >Eletrodomésticos</a>
+              <a href="busca/cat-casa-m-veis-e-decora-o.html" >Casa, Móveis e Decoração</a>
+              <a href="busca/cat-eletr-nicos-udio-e-v-deo.html" >Eletrônicos, Áudio e Vídeo</a>
+              <a href="busca/cat-acess-rios-para-ve-culos.html" >Acessórios para Veículos</a>
+              <a href="busca/cat-beb-s.html" >Bebês</a>
+            <a href="busca/cat-vender.html">Vender</a>
+      <a href="busca/cat-ajuda.html">Ajuda</a>
+    </div>
+  </div>
+</header>
+
+<main class="ll-wrap">
+  <h1>Carrinho</h1>
+
+  <div id="ll-conteudo" class="ll-cart-grid" hidden>
+    <section>
+      <div class="ll-card" id="ll-itens"></div>
+      <button class="ll-link-btn" id="ll-limpar">Limpar carrinho</button>
+    </section>
+    <aside>
+      <div class="ll-card">
+        <h2 class="ll-resumo-titulo">Resumo da compra</h2>
+        <div class="ll-linha"><span>Produtos (<span id="ll-qtd-total">0</span>)</span><span id="ll-subtotal">R$ 0,00</span></div>
+        <div class="ll-linha"><span>Frete</span><span style="color:#00a650;font-weight:600">Grátis</span></div>
+        <div class="ll-linha total"><span>Total</span><span id="ll-total">R$ 0,00</span></div>
+        <div class="ll-mini" id="ll-parcelas"></div>
+        <a class="ll-btn" href="checkout.html">Continuar para o checkout</a>
+        <a class="ll-btn secundario" href="index.html">Continuar comprando</a>
+      </div>
+    </aside>
+  </div>
+
+  <div id="ll-vazio" class="ll-vazio" hidden>
+    <h2>Seu carrinho está vazio</h2>
+    <p>Adicione produtos para continuar a compra.</p>
+    <a class="ll-btn" href="index.html">Ver ofertas</a>
+  </div>
+</main>
+
+<footer class="ml-footer">
+  <div class="ml-footer-top">
+    <div class="ml-footer-col">
+      <h4>Sobre</h4>
+      <a href="#">Sobre nós</a>
+      <a href="#">Sustentabilidade</a>
+      <a href="#">Tendências</a>
+      <a href="#">Investidores</a>
+    </div>
+    <div class="ml-footer-col">
+      <h4>Outros sites</h4>
+      <a href="#">Envios</a>
+      <a href="#">Pagamentos</a>
+      <a href="#">Créditos</a>
+      <a href="#">Anúncios</a>
+    </div>
+    <div class="ml-footer-col">
+      <h4>Ajuda</h4>
+      <a href="#">Comprar</a>
+      <a href="#">Vender</a>
+      <a href="#">Resolução de problemas</a>
+      <a href="#">Central de segurança</a>
+    </div>
+    <div class="ml-footer-col">
+      <h4>Minha conta</h4>
+      <a href="minha-conta.html">Meus dados</a>
+      <a href="meus-pedidos.html">Meus pedidos</a>
+      <a href="favoritos.html">Favoritos</a>
+      <a href="carrinho.html">Carrinho</a>
+    </div>
+  </div>
+  <div class="ml-footer-bottom">
+    <div>Copyright © 2026 Painel Ltda.</div>
+    <div>Todos os direitos reservados.</div>
+  </div>
+</footer>
+<footer class="ml-footer-mobile-prod">
+  <div class="ml-footer-mobile-prod-topo">
+    <img src="assets/ml-handshake-transparent.png/logo01.png" alt="">
+    <span>Compre e venda no Mercado Livre</span>
+  </div>
+  <div class="ml-footer-mobile-prod-links">
+    <div><span>Minha conta</span><span>Compras</span></div>
+    <div><span>Histórico</span><span>Ofertas do dia</span></div>
+    <div><span>Favoritos</span><span>Lojas oficiais</span></div>
+    <div><span>Categorias</span><span>Meli+</span></div>
+    <div><span>Contato</span><span>Vender</span></div>
+  </div>
+  <div class="ml-footer-mobile-prod-divisor"></div>
+  <div class="ml-footer-mobile-prod-legal">
+    <p>
+      <a href="#">Termos e condições</a>
+      <a href="#">Como cuidamos da sua privacidade</a>
+      <a href="#">Acessibilidade</a>
+      <a href="#">Informações sobre seguros</a>
+      <a href="#">Blog</a>
+      <a href="#">Afiliados</a>
+      <a href="#">Tendências</a>
+    </p>
+    <p>© 1999-2024 Ebazar.com.br LTDA.</p>
+  </div>
+</footer>
+<div class="ll-rodape">Clone local de demonstração — Pix real via Medusa Payments; cartão e boleto simulados.</div>
+
+<script>
+(function () {
+  var LL = window.LojaLocal;
+
+  function itemHtml(it, i) {
+    var img = it.img || '';
+    var url = it.url || 'index.html';
+    var varTxt = it.variacoes ? '<div class="ll-item-var">' + it.variacoes + '</div>' : '';
+    var antigo = it.old && it.old > it.price
+      ? '<div class="ll-item-antigo">' + LL.brl(it.old) + '</div>' : '';
+    return '<div class="ll-item" data-idx="' + i + '">' +
+      '<a href="' + url + '"><img src="' + img + '" alt=""></a>' +
+      '<div class="ll-item-info">' +
+        '<a class="ll-item-nome" href="' + url + '">' + it.nome + '</a>' +
+        varTxt +
+        antigo +
+        '<div class="ll-item-preco">' + LL.brl(it.price) + '</div>' +
+        '<div class="ll-item-acoes">' +
+          '<div class="ll-qtd">' +
+            '<button type="button" data-menos="' + i + '" aria-label="Diminuir">−</button>' +
+            '<span>' + (it.qty || 1) + '</span>' +
+            '<button type="button" data-mais="' + i + '" aria-label="Aumentar">+</button>' +
+          '</div>' +
+          '<button class="ll-link-btn" data-remover="' + i + '">Remover</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }
+
+  function countUp(el, to) {
+    var from = parseFloat(el.dataset.val || '0');
+    el.dataset.val = to;
+    if (from === to) { el.textContent = LL.brl(to); return; }
+    var t0 = performance.now(), dur = 420;
+    function step(t) {
+      var k = Math.min(1, (t - t0) / dur);
+      var e = 1 - Math.pow(1 - k, 3);
+      el.textContent = LL.brl(from + (to - from) * e);
+      if (k < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  function render() {
+    var cart = LL.load();
+    var temItens = cart.length > 0;
+    document.getElementById('ll-conteudo').hidden = !temItens;
+    document.getElementById('ll-vazio').hidden = temItens;
+    if (!temItens) return;
+
+    document.getElementById('ll-itens').innerHTML = cart.map(itemHtml).join('');
+
+    var qtd = LL.count();
+    var sub = LL.subtotal();
+    document.getElementById('ll-qtd-total').textContent = qtd;
+    document.getElementById('ll-subtotal').textContent = LL.brl(sub);
+    countUp(document.getElementById('ll-total'), sub);
+    document.getElementById('ll-parcelas').textContent =
+      'em até 10x de ' + LL.brl(sub / 10) + ' sem juros';
+    LL.badge();
+  }
+
+  document.addEventListener('click', function (ev) {
+    var t = ev.target.closest('[data-mais],[data-menos],[data-remover]');
+    if (!t) return;
+    var cart = LL.load();
+    if (t.dataset.mais !== undefined) {
+      var i = +t.dataset.mais;
+      LL.setQty(i, (cart[i].qty || 1) + 1);
+      render();
+    } else if (t.dataset.menos !== undefined) {
+      var j = +t.dataset.menos;
+      LL.setQty(j, (cart[j].qty || 1) - 1);
+      render();
+    } else if (t.dataset.remover !== undefined) {
+      var idx = +t.dataset.remover;
+      var row = t.closest('.ll-item');
+      if (row) {
+        row.classList.add('removendo');
+        setTimeout(function () { LL.remove(idx); render(); }, 230);
+      } else {
+        LL.remove(idx);
+        render();
+      }
+    }
+  });
+
+  document.getElementById('ll-limpar').addEventListener('click', function () {
+    LL.clear();
+    render();
+  });
+
+  render();
+
+  try {
+    if (sessionStorage.getItem('ll_added')) {
+      sessionStorage.removeItem('ll_added');
+      setTimeout(function () { LL.toast('Produto adicionado ao carrinho'); }, 250);
+    }
+  } catch (e) {}
+})();
+</script>
+</body>
+</html>

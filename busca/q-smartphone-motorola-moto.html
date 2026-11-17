@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head><meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smartphone Motorola Moto | Mercado Livre</title>
+<link rel="stylesheet" href="../assets/css/estilo.css">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', "1191181690517667");
+fbq('init', "974317178461670");
+fbq('trackSingle', "1191181690517667", 'PageView');
+fbq('trackSingle', "974317178461670", 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1191181690517667&ev=PageView&noscript=1"
+/></noscript>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=974317178461670&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<script>
+(function(){
+    var p=new URLSearchParams(location.search),keys=['utm_source','utm_medium','utm_campaign','utm_term','utm_content'];
+    var v={};keys.forEach(function(k){if(p.get(k))v[k]=p.get(k);});
+    if(Object.keys(v).length){
+        var exp=new Date();exp.setDate(exp.getDate()+30);
+        document.cookie='ml_utms='+encodeURIComponent(JSON.stringify(v))+';expires='+exp.toUTCString()+';path=/;SameSite=Lax';
+    }
+})();
+</script>
+<meta name="theme-color" content="#ffffff">
+<script>
+(function(){
+  var _lastAct=Date.now();
+  var _hbBase='';
+  ['click','scroll','keydown','touchstart','mousemove'].forEach(function(ev){
+    document.addEventListener(ev,function(){_lastAct=Date.now();},{passive:true,capture:true});
+  });
+  function _getHbBody(){
+    var sid=sessionStorage.getItem('_ml_sid');
+    if(!sid)return null;
+    var el=document.querySelector('h1.titulo,.ml-produto-titulo,h1.ml-produto-nome,.ml-checkout-item-titulo,.ml-pagamento-produto-nome,.ml-pix-produto p,.ml-revisao-detalhe-sub');
+    var titulo=el?el.textContent.trim():sessionStorage.getItem('_vis_produto')||document.title;
+    var b=new URLSearchParams();
+    b.append('sid',sid);
+    b.append('pagina',location.pathname+location.search);
+    b.append('titulo',titulo.slice(0,255));
+    return b;
+  }
+  function _hb(){
+    var sid=sessionStorage.getItem('_ml_sid');
+    if(!sid)return;
+    if(document.hidden)return;
+    if(Date.now()-_lastAct>300000)return;
+    var b=_getHbBody();
+    if(!b)return;
+    fetch(_hbBase+'/acoes/heartbeat.php',{method:'POST',keepalive:true,body:b}).catch(function(){});
+  }
+  function _hbBeacon(){
+    var b=_getHbBody();
+    if(!b)return;
+    var url=_hbBase+'/acoes/heartbeat.php';
+    if(navigator.sendBeacon){navigator.sendBeacon(url,b);}
+    else{fetch(url,{method:'POST',keepalive:true,body:b}).catch(function(){});}
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    setTimeout(function(){ _hb(); setInterval(_hb,10000); }, 3000);
+  });
+  document.addEventListener('visibilitychange',function(){
+    if(!document.hidden){_hb();}
+    else{_hbBeacon();}
+  });
+  window.addEventListener('pagehide',function(){_hbBeacon();});
+})();
+</script>
+<link rel="stylesheet" href="../assets/css/loja-local.css">
+<script src="../assets/js/loja-local.js" data-root="../"></script>
+</head>
+<body>
+
+<div id="white-spinner" style="display:none;position:fixed;inset:0;z-index:10000;background:#fff;align-items:center;justify-content:center;">
+  <div style="width:54px;height:54px;border:4px solid rgba(52,131,250,.16);border-top-color:#3483fa;border-radius:50%;animation:spin 0.8s linear infinite;"></div>
+</div>
+<div id="cep-modal" style="display:none;position:fixed;inset:0;z-index:10001;background:rgba(0,0,0,.45);align-items:center;justify-content:center;padding:20px;">
+  <div style="width:100%;max-width:360px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.28);">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:16px;border-bottom:1px solid #eee;">
+      <strong style="font-size:16px;color:#333">CEP</strong>
+      <button type="button" onclick="fecharCepModal()" style="border:none;background:none;font-size:24px;line-height:1;cursor:pointer;color:#666;padding:0">&times;</button>
+    </div>
+    <div style="padding:16px;display:grid;gap:12px;">
+      <input id="cep-modal-input" inputmode="numeric" maxlength="9" placeholder="Ex.: 05410-001" style="width:100%;padding:12px 14px;border:1px solid #ddd;border-radius:8px;font-size:14px;outline:none;">
+      <button id="cep-modal-btn" type="button" onclick="pesquisarCepModal()" style="width:100%;padding:12px 14px;background:#3483fa;border:none;color:#fff;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;">
+        <span id="cep-modal-btn-text">Pesquisar CEP</span>
+        <span id="cep-modal-btn-spinner" style="display:none;width:14px;height:14px;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:spin 0.8s linear infinite;"></span>
+      </button>
+      <a href="https://buscacepinter.correios.com.br/" target="_blank" rel="noreferrer" style="font-size:13px;color:#3483fa;text-decoration:none">Não sei meu CEP</a>
+      <div id="cep-modal-status" style="display:none;color:#666;font-size:13px"></div>
+      <div id="cep-modal-erro" style="display:none;color:#ef4444;font-size:13px"></div>
+    </div>
+  </div>
+</div>
+<style>@keyframes spin{to{transform:rotate(360deg)}}</style>
+<script>
+  function openWithWhiteSpinnerLink(link){
+    var el = document.getElementById('white-spinner');
+    if (el) el.style.display = 'flex';
+    setTimeout(function(){ window.location.href = link.getAttribute('data-href'); }, 900);
+  }
+  function abrirCepModal(){
+    var modal = document.getElementById('cep-modal');
+    var input = document.getElementById('cep-modal-input');
+    var erro = document.getElementById('cep-modal-erro');
+    var status = document.getElementById('cep-modal-status');
+    if (erro) { erro.style.display='none'; erro.textContent=''; }
+    if (status) { status.style.display='none'; status.textContent=''; }
+    if (modal) modal.style.display = 'flex';
+    if (input) {
+      input.value = localStorage.getItem('ml_cep') || '';
+      setTimeout(function(){ input.focus(); input.select(); }, 50);
+    }
+  }
+  function fecharCepModal(){
+    var modal = document.getElementById('cep-modal');
+    if (modal) modal.style.display = 'none';
+    setCepLoading(false);
+    mostrarCepStatus('');
+  }
+  function mascaraCep(v){
+    v = (v || '').replace(/\D/g,'').slice(0,8);
+    return v.replace(/^(\d{5})(\d{0,3}).*/, function(_, a, b){ return b ? a + '-' + b : a; });
+  }
+  function mostrarCepStatus(msg, erro){
+    var status = document.getElementById('cep-modal-status');
+    var error = document.getElementById('cep-modal-erro');
+    if (status) {
+      status.textContent = msg || '';
+      status.style.display = msg ? 'block' : 'none';
+      status.style.color = erro ? '#ef4444' : '#666';
+    }
+    if (error) {
+      error.style.display = 'none';
+      error.textContent = '';
+    }
+  }
+  function setCepLoading(on){
+    var btn = document.getElementById('cep-modal-btn');
+    var text = document.getElementById('cep-modal-btn-text');
+    var spin = document.getElementById('cep-modal-btn-spinner');
+    var input = document.getElementById('cep-modal-input');
+    if (btn) btn.disabled = !!on;
+    if (input) input.readOnly = !!on;
+    if (text) text.textContent = on ? 'Validando CEP...' : 'Pesquisar CEP';
+    if (spin) spin.style.display = on ? 'inline-block' : 'none';
+    if (btn) btn.style.opacity = on ? '0.9' : '1';
+  }
+  async function pesquisarCepModal(){
+    var input = document.getElementById('cep-modal-input');
+    var cep = (input && input.value || '').replace(/\D/g,'');
+    if (cep.length !== 8) { mostrarCepStatus('CEP precisa 8 dígitos.', true); return; }
+    setCepLoading(true);
+    mostrarCepStatus('Validando CEP...');
+    try {
+      await new Promise(function(r){ setTimeout(r, 1500); });
+      var resp = await fetch('https://viacep.com.br/ws/' + cep + '/json/');
+      if (!resp.ok) throw new Error('HTTP '+resp.status);
+      var dados = await resp.json();
+      if (dados.erro) { mostrarCepStatus('CEP não encontrado.', true); setCepLoading(false); return; }
+      localStorage.setItem('ml_cep', mascaraCep(cep));
+      localStorage.setItem('ml_cep_data', JSON.stringify(dados));
+      atualizarTextoCep();
+      fecharCepModal();
+      setCepLoading(false);
+    } catch (e) {
+      setCepLoading(false);
+      mostrarCepStatus('Falha ao consultar CEP.', true);
+    }
+  }
+  function atualizarTextoCep(){
+    var els = document.querySelectorAll('.ml-cat-texto, .ml-produto-topo-mobile-endereco > span');
+    var cep = localStorage.getItem('ml_cep');
+    var dados = null;
+    try { dados = JSON.parse(localStorage.getItem('ml_cep_data') || 'null'); } catch(e) {}
+    if (!els.length || !cep) return;
+    var texto = cep;
+    if (dados && dados.localidade && dados.uf) {
+      texto = dados.localidade + ' ' + dados.uf + ' ' + cep;
+    }
+    els.forEach(function(el){
+      el.textContent = el.classList.contains('ml-cat-texto') ? ('Enviar para ' + texto) : ('Enviar para ' + texto);
+    });
+  }
+  document.addEventListener('DOMContentLoaded', function(){
+    atualizarTextoCep();
+    document.querySelectorAll('[data-cep-trigger]').forEach(function(el){
+      el.addEventListener('click', function(){ abrirCepModal(); });
+    });
+    var input = document.getElementById('cep-modal-input');
+    if (input) {
+      input.addEventListener('input', function(){ input.value = mascaraCep(input.value); });
+    }
+    var modal = document.getElementById('cep-modal');
+    if (modal) {
+      modal.addEventListener('click', function(e){ if (e.target === modal) fecharCepModal(); });
+    }
+  });
+</script>
+
+<header class="ml-produto-topo-mobile">
+  <div class="ml-produto-topo-mobile-linha">
+    <a href="#" onclick="openWithWhiteSpinnerLink(this);return false;" data-href="../index.html" class="ml-produto-topo-mobile-logo" aria-label="Página inicial">
+      <img src="../assets/ml-handshake-transparent.png/logo01.png" alt="Mercado Livre">
+    </a>
+
+    <form class="ml-produto-topo-mobile-busca" method="get" action="../busca.html">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.4"/><path d="m16 16 4.1 4.1"/></svg>
+      <input type="text" name="q" aria-label="Buscar" placeholder="Estou buscando..." value="Smartphone Motorola Moto">
+    </form>
+
+    <button class="ml-produto-topo-mobile-menu" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="ml-produto-menu">
+      <svg class="icon-hamburguer" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16M4 12h16M4 17.5h16"/></svg>
+      <svg class="icon-fechar" viewBox="0 0 24 24" aria-hidden="true" style="display:none;"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+
+    <a href="../carrinho.html" class="ml-produto-topo-mobile-carrinho" aria-label="Carrinho">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3h2.5l2.1 11.2a2 2 0 0 0 2 1.6h9.1a2 2 0 0 0 1.9-1.4L21 8H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+          </a>
+  </div>
+
+  <button type="button" data-cep-trigger class="ml-produto-topo-mobile-endereco" style="background:none;border:0;border-top:1px solid rgba(0,0,0,.12);padding:0 10px 0 8px;cursor:pointer;text-align:left;width:100%;display:flex;align-items:center;gap:4px;min-width:0;overflow:hidden;">
+    <svg viewBox="0 0 24 24" aria-hidden="true" style="flex:none"><path d="M20 10c0 5.5-8 11-8 11S4 15.5 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+    <span style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block;flex:1 1 auto;">Informe seu CEP</span>
+    <svg class="ml-produto-topo-mobile-seta" viewBox="0 0 24 24" aria-hidden="true" style="flex:none"><path d="m9 18 6-6-6-6"/></svg>
+  </button>
+
+  <nav class="ml-produto-topo-mobile-painel" id="ml-produto-menu" hidden>
+    <a href="../index.html" class="ml-menu-nav-item">
+      <i class="nav-icon-home"></i>
+      <span>Início</span>
+    </a>
+
+    
+        <details class="ml-menu-cats-details">
+      <summary class="ml-menu-nav-item ml-menu-cats-summary">
+        <i class="nav-icon-categories-mobile"></i>
+        <span>Categorias</span>
+        <svg class="ml-menu-cats-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#333" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </summary>
+      <div class="ml-menu-cats-lista">
+                <a href="cat-eletrodom-sticos.html" class="ml-menu-cat-item">
+                      <span style="width:48px;height:48px;flex-shrink:0;border-radius:6px;background:#f5f5f5;display:inline-block;"></span>
+                    <span style="font-size:14px;color:#333;">Eletrodomésticos</span>
+        </a>
+                <a href="cat-casa-m-veis-e-decora-o.html" class="ml-menu-cat-item">
+                      <span style="width:48px;height:48px;flex-shrink:0;border-radius:6px;background:#f5f5f5;display:inline-block;"></span>
+                    <span style="font-size:14px;color:#333;">Casa, Móveis e Decoração</span>
+        </a>
+                <a href="cat-eletr-nicos-udio-e-v-deo.html" class="ml-menu-cat-item">
+                      <span style="width:48px;height:48px;flex-shrink:0;border-radius:6px;background:#f5f5f5;display:inline-block;"></span>
+                    <span style="font-size:14px;color:#333;">Eletrônicos, Áudio e Vídeo</span>
+        </a>
+                <a href="cat-acess-rios-para-ve-culos.html" class="ml-menu-cat-item">
+                      <span style="width:48px;height:48px;flex-shrink:0;border-radius:6px;background:#f5f5f5;display:inline-block;"></span>
+                    <span style="font-size:14px;color:#333;">Acessórios para Veículos</span>
+        </a>
+                <a href="cat-beb-s.html" class="ml-menu-cat-item">
+                      <span style="width:48px;height:48px;flex-shrink:0;border-radius:6px;background:#f5f5f5;display:inline-block;"></span>
+                    <span style="font-size:14px;color:#333;">Bebês</span>
+        </a>
+              </div>
+    </details>
+      </nav>
+</header>
+
+
+<header class="ml-topo ml-produto-topo-desktop">
+  <div class="ml-topo-inner">
+    <a href="#" onclick="openWithWhiteSpinnerLink(this);return false;" data-href="../index.html" class="ml-logo">
+      <div class="ml-logo-icone">🤝</div>
+      <div class="ml-logo-texto">
+        <div>painel</div>
+        <div class="ml-logo-sub">livre</div>
+      </div>
+    </a>
+
+    <form class="ml-busca" method="get" action="../busca.html">
+      <input type="text" name="q" placeholder="Buscar produtos, marcas e muito mais…" value="Smartphone Motorola Moto">
+      <button type="submit" aria-label="Buscar">🔍</button>
+    </form>
+
+    <div class="ml-usuario">
+              <a href="../cadastro.html">Crie sua conta</a>
+        <a href="../login.html">Entre</a>
+            <a href="../carrinho.html" class="ml-carrinho" aria-label="Carrinho">
+        🛒      </a>
+    </div>
+  </div>
+
+  <div class="ml-cat">
+    <div class="ml-cat-inner">
+      <div style="margin-left:0;">
+      <button type="button" data-cep-trigger style="background:none;border:none;padding:0;cursor:pointer;display:flex;align-items:center;gap:4px;color:inherit;font:inherit;min-width:0;flex:0 1 auto;max-width:100%;white-space:nowrap;overflow:hidden;">
+        <span class="ml-cat-icone" style="flex:none">📍</span><span class="ml-cat-texto" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block;max-width:100%;padding-right:8px;">Informe seu CEP</span>
+      </button>
+      </div>
+      <a href="cat-ofertas.html">Ofertas</a>
+              <a href="cat-eletrodom-sticos.html" >Eletrodomésticos</a>
+              <a href="cat-casa-m-veis-e-decora-o.html" >Casa, Móveis e Decoração</a>
+              <a href="cat-eletr-nicos-udio-e-v-deo.html" >Eletrônicos, Áudio e Vídeo</a>
+              <a href="cat-acess-rios-para-ve-culos.html" >Acessórios para Veículos</a>
+              <a href="cat-beb-s.html" >Bebês</a>
+            <a href="cat-vender.html">Vender</a>
+      <a href="cat-ajuda.html">Ajuda</a>
+    </div>
+  </div>
+</header>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var botao = document.querySelector('.ml-produto-topo-mobile-menu');
+  var painel = document.getElementById('ml-produto-menu');
+
+  if (!botao || !painel) return;
+
+  var iconHamb  = botao.querySelector('.icon-hamburguer');
+  var iconFechar = botao.querySelector('.icon-fechar');
+
+  botao.addEventListener('click', function () {
+    var aberto = botao.getAttribute('aria-expanded') === 'true';
+    botao.setAttribute('aria-expanded', String(!aberto));
+    painel.hidden = aberto;
+    iconHamb.style.display  = aberto ? '' : 'none';
+    iconFechar.style.display = aberto ? 'none' : '';
+    botao.setAttribute('aria-label', aberto ? 'Abrir menu' : 'Fechar menu');
+  });
+});
+</script>
+
+<main class="ml-main">
+
+<div style="max-width:100%;margin:0;padding:0;">
+  <style>
+    .ui-search-toolbar{width:100%;background:#fff;box-sizing:border-box;padding:0 16px 10px;margin:0;border-bottom:1px solid #ededed}
+    .ui-search-toolbar__actions{list-style:none;margin:0 auto;padding:10px 16px 6px;display:flex;align-items:center;gap:12px;flex-wrap:nowrap;max-width:1200px;overflow-x:auto}
+    .ui-search-toolbar__action,.ui-search-spotlight__spotlight-wrapper{display:flex;align-items:center}
+    .ui-search-toolbar__action--filter{margin-left:auto}
+    .ui-search-sort,.filter-option-menu--link,.ui-search-spotlight__link{display:inline-flex;align-items:center;gap:6px;color:#3483fa;text-decoration:none;font:400 14px/1.2 Arial,sans-serif;padding:4px 6px;border-radius:4px}
+    .ui-search-sort:hover,.filter-option-menu--link:hover,.ui-search-spotlight__link:hover{background:#f5f5f5}
+    .ui-search-icon{width:16px;height:16px;flex:none;fill:currentColor;display:block}
+    .andes-switch{display:inline-flex;align-items:center;gap:8px;user-select:none;cursor:pointer;font:400 14px/1.2 Arial,sans-serif;color:#333}
+    .andes-switch__input{appearance:none;-webkit-appearance:none;width:40px;height:22px;border-radius:999px;background:#cfd4dc;position:relative;outline:none;cursor:pointer;flex:none;transition:background .18s ease}
+    .andes-switch__input::before{content:"";position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.22);transition:transform .18s ease}
+    .andes-switch__input:checked{background:#3483fa}
+    .andes-switch__input:checked::before{transform:translateX(18px)}
+    .andes-switch__label{white-space:nowrap}
+    .search-context{width:100%;background:#fff;box-sizing:border-box;padding:14px 16px 12px;border-bottom:1px solid #ededed}
+    .search-context__inner{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:4px}
+    .search-context__eyebrow{font-size:12px;line-height:1.2;color:#666;text-transform:uppercase;letter-spacing:.4px}
+    .search-context__title{font-size:18px;line-height:1.2;font-weight:700;color:#333;margin:0}
+    .search-context__meta{font-size:13px;line-height:1.35;color:#666}
+    .search-results{width:100%;margin:0;padding:0}
+    .search-results a{border-left:none;border-right:none;border-radius:0}
+    .search-results .poly-card--list{display:flex;flex-direction:row;gap:8px;padding:10px 16px;background:#fff;text-decoration:none;color:inherit;border-left:none;border-right:none;border-top:none;border-bottom:1px solid #e6e6e6;border-radius:0;box-shadow:none;overflow:visible;align-items:center;min-height:0;margin:0}
+    .search-results .poly-card__content{min-width:0;flex:1;display:flex;flex-direction:column;gap:2px;align-items:flex-start;justify-content:center}
+    .search-results .poly-component__title-wrapper{margin:0}
+    .search-results .poly-component__title{font-size:13px;line-height:1.25;font-weight:400;color:#333;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;white-space:normal;min-height:2.5em}
+    .search-results .poly-component__price{display:flex;flex-direction:column;gap:2px;margin:0}
+    .search-results .poly-price__current{display:flex;align-items:center;gap:4px;flex-wrap:wrap;line-height:1}
+    .search-results .poly-component__shipping{display:flex;align-items:center;gap:4px;font-size:11px;line-height:1.2;color:#00a650;font-weight:400;margin-top:-2px}
+    .search-results .poly-card__portada{display:flex;align-items:center;justify-content:center;overflow:hidden;width:90px;height:90px;min-height:0;margin:0;flex:0 0 90px}
+    .search-results .poly-card__portada img{display:block;object-fit:contain;width:100%;height:100%;max-height:90px}
+    .search-results .poly-discount{color:#fff;background:#00a650;font-size:11px;font-weight:600;padding:1px 4px;border-radius:2px;line-height:1}
+    .search-results .poly-installments{font-size:11px;color:#000000e6;line-height:1.2}
+    .search-results .andes-money-amount{font-size:18px;line-height:1.05}
+    .search-results .poly-price__installments{font-size:12px;color:#00a650;line-height:1.2;margin-top:2px}
+    .search-results .poly-price__installments .andes-money-amount{font-size:inherit;line-height:inherit}
+    .search-results .andes-money-amount--previous{font-size:11px;color:#999}
+    .search-results .andes-money-amount__fraction{font-size:1em}
+    .search-results .andes-money-amount sup{font-size:65%;top:-.4em}
+    .search-results .poly-component__shipping svg{vertical-align:middle}
+    .search-results .poly-card__portada img{display:block;object-fit:contain}
+    .search-results .poly-card--list{position:relative}
+    .search-results .poly-component__highlight{display:inline-block;font-size:11px;font-weight:700;padding:2px 6px;border-radius:3px;line-height:1.1;color:#fff;background:#ff7733}
+    .search-results .poly-component__seller{display:flex;align-items:center;gap:3px;font-size:12px;color:#666;line-height:1.2}
+    .search-results .poly-component__seller svg{width:14px;height:14px;fill:#3483fa;flex:none;vertical-align:middle}
+    .search-results .poly-component__review{display:flex;align-items:center;gap:3px;font-size:12px;line-height:1.2}
+    .search-results .poly-component__review svg{width:11px;height:11px;fill:#3483fa}
+    .search-results .poly-component__review .rev-nota{color:#3483fa;font-weight:400}
+    .search-results .poly-component__review .rev-total{color:#737373}
+    .search-results .poly-price__disc-label{font-size:11px;font-weight:600;color:#00a650;line-height:1}
+    .search-results .poly-shipping-pill{display:inline-block;font-size:11px;font-weight:600;color:#00a650;background:#e5f6ed;padding:2px 6px;border-radius:3px;line-height:1.2;margin-top:2px}
+    .search-results .poly-bookmark{position:absolute;top:8px;right:12px;width:28px;height:28px;border:0;background:transparent;display:grid;place-items:center;padding:0;cursor:pointer;color:#3483fa}
+    .search-results .poly-bookmark svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6}
+    @media (max-width: 767px){
+      .ui-search-toolbar{padding:0 12px 8px}
+      .ui-search-toolbar__actions{padding:10px 0 6px;gap:8px}
+      .ui-search-toolbar__action--filter{margin-left:auto}
+      .search-context{padding:12px 12px 10px}
+      .search-context__title{font-size:16px}
+      .search-context__meta{font-size:12px}
+      .search-results a{padding:4px 0;gap:10px}
+      .search-results .poly-card--list{min-height:134px;align-items:center;margin:0}
+      .search-results .poly-card__portada{width:110px !important;height:110px !important;min-height:0 !important;margin:0 !important;flex:0 0 110px}
+      .search-results .poly-card__portada img{width:100%;height:100%;max-height:110px}
+      .search-results .poly-card__content{justify-content:center}
+      .search-results .poly-component__title{font-size:14px;line-height:1.28;padding:0}
+      .search-results .andes-money-amount{font-size:18px;line-height:1.05}
+      .search-results .andes-money-amount--previous{font-size:11px}
+      .search-results .poly-component__shipping{font-size:12px}
+    }
+  </style>
+  <div class="ui-search-toolbar ui-search-toolbar--border ui-search-toolbar--has-spotlight">
+    <ul class="ui-search-toolbar__actions">
+      <li class="ui-search-toolbar__action">
+        <a href="q-smartphone-motorola-moto-edf58c.html" class="ui-search-sort sort-option-menu--link ui-search-link" title="Ordenar">
+          <svg class="ui-search-icon ui-search-icon--order" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.857 23.527l-3.705-3.705-1.616 1.616 6.464 6.464 6.464-6.462-1.616-1.616-3.705 3.701v-18.953h-2.286v18.955zM22.857 8.473l-3.705 3.705-1.616-1.616 6.464-6.464 0.809 0.807 5.655 5.657-1.616 1.616-3.705-3.703v18.953h-2.286v-18.955z"></path></svg>
+          Ordenar        </a>
+      </li>
+      <li class="ui-search-spotlight__spotlight-wrapper ui-search-spotlight__spotlight-wrapper--wide">
+        <a href="q-smartphone-motorola-moto-075e4e.html" class="ui-search-spotlight__link ui-search-spotlight__link--toolbar-variant" style="text-decoration:none">
+          <label class="andes-switch ui-search-switch ui-search-spotlight ui-search-spotlight--toolbar-variant andes-switch--label-left" data-andes-switch="true">
+            <input class="andes-switch__input" data-andes-switch-input="true" id="_r_gf_" role="switch" type="checkbox"  onchange="window.location.href='q-smartphone-motorola-moto-075e4e.html'">
+            <span class="andes-switch__label" data-andes-switch-label="true">Chegará amanhã</span>
+          </label>
+        </a>
+      </li>
+      <li class="ui-search-toolbar__action ui-search-toolbar__action--filter" id="filterDropdown">
+        <a href="#" class="filter-option-menu--link ui-search-link" onclick="document.getElementById('filterModal').classList.toggle('hidden');return false">
+          <svg class="ui-search-icon ui-search-icon--filter" viewBox="0 0 32 32" fill="none" data-testid="icon-filter_toolbar" xmlns="http://www.w3.org/2000/svg"><path d="M15.9 22h16.1v2h-16.1c-0.479 2.301-2.491 4.005-4.9 4.005s-4.42-1.704-4.894-3.973l-0.006-0.032h-6.1v-2h6.1c0.479-2.301 2.491-4.005 4.9-4.005s4.421 1.704 4.894 3.973l0.006 0.032zM18.1 8c0.48-2.301 2.491-4.005 4.9-4.005s4.421 1.704 4.894 3.973l0.006 0.032h4.1v2h-4.1c-0.48 2.301-2.491 4.005-4.9 4.005s-4.421-1.704-4.894-3.973l-0.006-0.033h-18.1v-2h18.1zM23 12c1.657 0 3-1.343 3-3s-1.343-3-3-3v0c-1.657 0-3 1.343-3 3s1.343 3 3 3v0zM11 26c1.657 0 3-1.343 3-3s-1.343-3-3-3v0c-1.657 0-3 1.343-3 3s1.343 3 3 3v0z"></path></svg>
+          Filtrar        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Modal de Filtros -->
+  <div id="filterModal" class="filter-modal hidden">
+    <div class="filter-modal__content">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:16px;border-bottom:1px solid #eee">
+        <span style="font-weight:600;font-size:16px;color:#333">Filtros</span>
+        <button onclick="document.getElementById('filterModal').classList.add('hidden')" style="background:none;border:none;font-size:24px;cursor:pointer;color:#666;padding:0;line-height:1">&times;</button>
+      </div>
+      <div style="padding:16px;overflow-y:auto;max-height:60vh">
+        <div style="margin-bottom:20px">
+          <div style="font-size:13px;color:#666;margin-bottom:10px;font-weight:500">Marca</div>
+                      <div style="display:flex;flex-wrap:wrap;gap:8px">
+                              <label style="cursor:pointer" onclick="toggleChip(this.querySelector('input'));return false"><input type="checkbox" class="filter-check" data-type="marca" value="Motorola"  style="display:none"><span class="filter-chip " style="padding:8px 14px;font-size:13px;border-radius:20px;background:#f5f5f5;color:#333;display:inline-block">Motorola</span></label>
+                          </div>
+                  </div>
+        <div style="margin-bottom:20px">
+          <div style="font-size:13px;color:#666;margin-bottom:10px;font-weight:500">Condição</div>
+          <div style="display:flex;gap:8px">
+            <label style="cursor:pointer" onclick="toggleChip(this.querySelector('input'));return false"><input type="checkbox" class="filter-check" data-type="cond" value="Novo"  style="display:none"><span class="filter-chip " style="padding:8px 14px;font-size:13px;border-radius:20px;background:#f5f5f5;color:#333;display:inline-block">Novo</span></label>
+            <label style="cursor:pointer" onclick="toggleChip(this.querySelector('input'));return false"><input type="checkbox" class="filter-check" data-type="cond" value="Usado"  style="display:none"><span class="filter-chip " style="padding:8px 14px;font-size:13px;border-radius:20px;background:#f5f5f5;color:#333;display:inline-block">Usado</span></label>
+          </div>
+        </div>
+        <div style="margin-bottom:20px">
+          <div style="font-size:13px;color:#666;margin-bottom:10px;font-weight:500">Ofertas</div>
+          <label style="cursor:pointer" onclick="toggleChip(this.querySelector('input'));return false"><input type="checkbox" class="filter-check" data-type="promo" value="1"  style="display:none"><span class="filter-chip " style="display:flex;align-items:center;gap:10px;padding:10px 14px;font-size:13px;border-radius:8px;background:#f5f5f5;color:#333"><span style="display:inline-block;width:18px;height:18px;border:2px solid #ccc;border-radius:4px;"></span> Só em promoção</span></label>
+        </div>
+              </div>
+      <div style="padding:16px;border-top:1px solid #eee">
+        <button onclick="applyFilters()" style="width:100%;padding:12px;background:#3483fa;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer">Filtrar</button>
+      </div>
+      <script>
+        function toggleChip(cb){
+          if(!cb) return;
+          cb.checked=!cb.checked;
+          var span=cb.nextElementSibling;
+          if(!span) return;
+          span.style.background=cb.checked?'#3483fa':'#f5f5f5';
+          span.style.color=cb.checked?'#fff':'#333';
+          var box=span.querySelector('span');
+          if(box){
+            box.style.background=cb.checked?'#00a650':'';
+            box.style.borderColor=cb.checked?'#00a650':'#ccc';
+            box.textContent=cb.checked?'✓':'';
+          }
+        }
+        function applyFilters(){
+          var params=new URLSearchParams(window.location.search);
+          params.delete('marca');params.delete('cond');params.delete('promo');
+          var marca=document.querySelector('.filter-check[data-type="marca"]:checked');
+          var cond=document.querySelector('.filter-check[data-type="cond"]:checked');
+          var promo=document.querySelector('.filter-check[data-type="promo"]:checked');
+          if(marca) params.set('marca',marca.value);
+          if(cond) params.set('cond',cond.value);
+          if(promo) params.set('promo','1');
+          window.location.href='../busca.html'+params.toString();
+        }
+        function clearFilters(){
+          var params=new URLSearchParams(window.location.search);
+          params.delete('marca');params.delete('cond');params.delete('promo');
+          window.location.href='../busca.html'+params.toString();
+        }
+      </script>
+    </div>
+  </div>
+  <style>
+    .filter-modal{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px}
+    .filter-modal.hidden{display:none!important}
+    .filter-modal__content{background:#fff;border-radius:12px;width:100%;max-width:360px;max-height:90vh;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,0.3)}
+  </style>
+
+    <div class="search-context">
+    <div class="search-context__inner">
+      <div class="search-context__eyebrow">Resultado</div>
+      <h1 class="search-context__title">Smartphone Motorola Moto</h1>
+      <div class="search-context__meta">Busca ativa</div>
+    </div>
+  </div>
+  
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+
+    <div class="search-results" style="display:flex;flex-direction:column;width:100%;margin:0;padding:0;">
+          <div class="poly-card poly-card--list">
+        <a href="../produto/26.html" onclick="openWithWhiteSpinnerLink(this);return false;" data-href="../produto/26.html" target="_self" class="poly-card__portada">
+          <span class="poly-component__image-overlay"></span>
+          <img src="https://http2.mlstatic.com/D_NQ_NP_831857-MLA99980263367_112025-F.webp" class="poly-component__picture poly-component__picture--contain" alt="Smartphone Motorola Moto g24 - 128GB 8GB (4GB RAM+4GB Ram Boost) AI Camera 50MP Night Vision - Grafite" aria-hidden="true" loading="eager" decoding="sync">
+        </a>
+        <div class="poly-card__content">
+                    <h3 class="poly-component__title-wrapper"><a href="../produto/26.html" onclick="openWithWhiteSpinnerLink(this);return false;" data-href="../produto/26.html" target="_self" class="poly-component__title">Smartphone Motorola Moto g24 - 128GB 8GB (4GB RAM+4GB Ram Boost) AI Camera 50MP Night Vision - Grafite</a></h3>
+          <span class="poly-component__seller">Motorola <svg viewBox="0 0 24 24" aria-label="Loja oficial"><path d="M12 2.5c-.6 0-1.16.28-1.53.75l-.9 1.15a1.4 1.4 0 0 1-1.1.53l-1.46-.03a1.94 1.94 0 0 0-1.98 1.98l.03 1.46a1.4 1.4 0 0 1-.53 1.1l-1.15.9a1.94 1.94 0 0 0 0 3.06l1.15.9c.34.27.54.68.53 1.1l-.03 1.46a1.94 1.94 0 0 0 1.98 1.98l1.46-.03c.42 0 .83.19 1.1.53l.9 1.15a1.94 1.94 0 0 0 3.06 0l.9-1.15c.27-.34.68-.54 1.1-.53l1.46.03a1.94 1.94 0 0 0 1.98-1.98l-.03-1.46c0-.42.19-.83.53-1.1l1.15-.9a1.94 1.94 0 0 0 0-3.06l-1.15-.9a1.4 1.4 0 0 1-.53-1.1l.03-1.46a1.94 1.94 0 0 0-1.98-1.98l-1.46.03a1.4 1.4 0 0 1-1.1-.53l-.9-1.15A1.94 1.94 0 0 0 12 2.5Z" fill="#3483fa"/><path d="m8.5 12 2.4 2.4 4.6-4.8" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>          <span class="poly-component__review" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#3483fa"><path d="M11.48 3.5a.6.6 0 0 1 1.04 0l2.28 4.62a.6.6 0 0 0 .45.33l5.1.74a.6.6 0 0 1 .33 1.02l-3.69 3.6a.6.6 0 0 0-.17.53l.87 5.08a.6.6 0 0 1-.87.63l-4.56-2.4a.6.6 0 0 0-.56 0l-4.56 2.4a.6.6 0 0 1-.87-.63l.87-5.08a.6.6 0 0 0-.17-.53l-3.69-3.6a.6.6 0 0 1 .33-1.02l5.1-.74a.6.6 0 0 0 .45-.33z"/></svg> <span class="rev-nota">4.8</span> <span class="rev-total">| +100.000 vendidos</span></span>          <div class="poly-component__price">
+            <s class="andes-money-amount andes-money-amount--previous andes-money-amount--cents-comma" role="img" aria-label="Antes: 529,90 reais"><span class="andes-money-amount__currency"><span class="andes-money-amount__currency-symbol">R$</span></span><span class="andes-money-amount__fraction">529,90</span></s>            <div class="poly-price__current">
+              <span class="andes-money-amount andes-money-amount--cents-superscript" role="img"><span class="andes-money-amount__currency"><span class="andes-money-amount__currency-symbol">R$</span></span><span class="andes-money-amount__fraction">229</span><sup>90</sup></span>
+              <span class="poly-price__disc-label">57% OFF no Pix</span>            </div>
+            <div class="poly-price__installments">10x <span class="andes-money-amount polylabel-price andes-money-amount--cents-comma" role="img"><span class="andes-money-amount__currency"><span class="andes-money-amount__currency-symbol">R$</span></span><span class="andes-money-amount__fraction">22</span><span aria-hidden="true">,</span><span class="andes-money-amount__cents">99</span></span> sem juros</div>
+          </div>
+          <div class="poly-component__shipping-v2" style="margin-top:10px;"><div class="poly-shipping-v2__item"><img src="../assets/ml-handshake-transparent.png/full-badge.svg" alt="FULL" style="height:12px;width:auto;vertical-align:middle;margin-right:4px;"><span class="poly-shipping-pill">Chegará grátis sexta-feira</span></div></div>        </div>
+        <div class="poly-component__bookmark" data-testid="bookmark"><button type="button" class="poly-bookmark__btn" role="switch" aria-checked="false" aria-label="Favorito"><svg aria-hidden="true" class="poly-bookmark__icon-empty" viewBox="0 0 20 20"><use href="#poly_bookmark"></use></svg></button></div>
+      </div>
+      </div>
+  </div>
+
+</main>
+
+<footer class="ml-footer-mobile-prod">
+  <div class="ml-footer-mobile-prod-topo">
+    <img src="../assets/ml-handshake-transparent.png/logo01.png" alt="">
+    <span>Compre e venda no Mercado Livre</span>
+  </div>
+  <div class="ml-footer-mobile-prod-links">
+    <div><span>Minha conta</span><span>Compras</span></div>
+    <div><span>Histórico</span><span>Ofertas do dia</span></div>
+    <div><span>Favoritos</span><span>Lojas oficiais</span></div>
+    <div><span>Categorias</span><span>Meli+</span></div>
+    <div><span>Contato</span><span>Vender</span></div>
+  </div>
+  <div class="ml-footer-mobile-prod-divisor"></div>
+  <div class="ml-footer-mobile-prod-legal">
+    <p>
+      <a href="#">Termos e condições</a>
+      <a href="#">Como cuidamos da sua privacidade</a>
+      <a href="#">Acessibilidade</a>
+      <a href="#">Informações sobre seguros</a>
+      <a href="#">Blog</a>
+      <a href="#">Afiliados</a>
+      <a href="#">Tendências</a>
+    </p>
+    <p>© 1999-2024 Ebazar.com.br LTDA.</p>
+  </div>
+</footer>
+
+<footer class="ml-footer">
+  <div class="ml-footer-top">
+    <div class="ml-footer-col">
+      <h4>Sobre</h4>
+      <a href="#">Sobre nós</a>
+      <a href="#">Sustentabilidade</a>
+      <a href="#">Tendências</a>
+      <a href="#">Investidores</a>
+    </div>
+    <div class="ml-footer-col">
+      <h4>Outros sites</h4>
+      <a href="#">Envios</a>
+      <a href="#">Pagamentos</a>
+      <a href="#">Créditos</a>
+      <a href="#">Anúncios</a>
+    </div>
+    <div class="ml-footer-col">
+      <h4>Ajuda</h4>
+      <a href="#">Comprar</a>
+      <a href="#">Vender</a>
+      <a href="#">Resolução de problemas</a>
+      <a href="#">Central de segurança</a>
+    </div>
+    <div class="ml-footer-col">
+      <h4>Minha conta</h4>
+      <a href="../minha-conta.html">Meus dados</a>
+      <a href="../meus-pedidos.html">Meus pedidos</a>
+      <a href="../favoritos.html">Favoritos</a>
+      <a href="../carrinho.html">Carrinho</a>
+    </div>
+  </div>
+  <div class="ml-footer-bottom">
+    <div>Copyright © 2026 Painel Ltda.</div>
+    <div>Todos os direitos reservados.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var el = document.querySelector('h1.titulo, h1.ml-produto-nome, .ml-produto-titulo, .ml-checkout-item-titulo, .ml-carrinho-item-titulo, .ml-carrinho-mob-titulo, .ml-pagamento-produto-nome, .ml-pix-produto p');
+  var produto = el ? el.textContent.trim() : '';
+  if(produto && produto.length > 3) sessionStorage.setItem('_vis_produto', produto);
+  var produtoFinal = produto || sessionStorage.getItem('_vis_produto') || '';
+  var titulo = produtoFinal || document.title || '';
+  var _mlSid = sessionStorage.getItem('_ml_sid') || '';
+  Promise.resolve({json:function(){return {};}}).then(function(r){return r.json();}).then(function(d){if(d&&d.sid)sessionStorage.setItem('_ml_sid',d.sid);}).catch(function(){});
+})();
+
+(function () {
+  var seletorCep = 'input[name="cep"], input[name="zipCode"], input[autocomplete="postal-code"], input[id="cep"], input[id="zipcode"]';
+
+  function formatarCep(valor) {
+    var numeros = String(valor || '').replace(/\D/g, '').slice(0, 8);
+    return numeros.length > 5 ? numeros.slice(0, 5) + '-' + numeros.slice(5) : numeros;
+  }
+
+  function prepararCampoCep(campo) {
+    campo.inputMode = 'numeric';
+    campo.maxLength = 9;
+    campo.autocomplete = 'postal-code';
+    campo.value = formatarCep(campo.value);
+  }
+
+  document.querySelectorAll(seletorCep).forEach(prepararCampoCep);
+
+  document.addEventListener('input', function (evento) {
+    var campo = evento.target;
+    if (campo instanceof HTMLInputElement && campo.matches(seletorCep)) {
+      campo.value = formatarCep(campo.value);
+    }
+  });
+})();
+</script>
+</body>
+</html>

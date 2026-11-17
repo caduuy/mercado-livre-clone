@@ -1,0 +1,9 @@
+{
+  "name": "achados-clone",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Clone local do achadosdodia.site com checkout e Pix via Medusa Payments",
+  "dependencies": {
+    "qrcode": "^1.5.4"
+  }
+}

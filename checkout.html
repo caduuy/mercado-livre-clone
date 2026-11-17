@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Checkout | Mercado Livre</title>
+<link rel="stylesheet" href="assets/css/estilo.css">
+<link rel="stylesheet" href="assets/css/loja-local.css">
+<script src="assets/js/topo-site.js"></script>
+<script src="assets/js/loja-local.js" data-root=""></script>
+</head>
+<body class="ll-body">
+<header class="ml-produto-topo-mobile">
+  <div class="ml-produto-topo-mobile-linha">
+    <a href="#" onclick="openWithWhiteSpinnerLink(this);return false;" data-href="index.html" class="ml-produto-topo-mobile-logo" aria-label="Página inicial">
+      <img src="assets/ml-handshake-transparent.png/logo01.png" alt="Mercado Livre">
+    </a>
+
+    <form class="ml-produto-topo-mobile-busca" method="get" action="busca.html">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.4"/><path d="m16 16 4.1 4.1"/></svg>
+      <input type="text" name="q" aria-label="Buscar" placeholder="Estou buscando..." value="">
+    </form>
+
+    <button class="ml-produto-topo-mobile-menu" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="ml-produto-menu">
+      <svg class="icon-hamburguer" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16M4 12h16M4 17.5h16"/></svg>
+      <svg class="icon-fechar" viewBox="0 0 24 24" aria-hidden="true" style="display:none;"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+
+    <a href="carrinho.html" class="ml-produto-topo-mobile-carrinho" aria-label="Carrinho">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3h2.5l2.1 11.2a2 2 0 0 0 2 1.6h9.1a2 2 0 0 0 1.9-1.4L21 8H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+          </a>
+  </div>
+
+  <button type="button" data-cep-trigger class="ml-produto-topo-mobile-endereco" style="background:none;border:0;border-top:1px solid rgba(0,0,0,.12);padding:0 10px 0 8px;cursor:pointer;text-align:left;width:100%;display:flex;align-items:center;gap:4px;min-width:0;overflow:hidden;">
+    <svg viewBox="0 0 24 24" aria-hidden="true" style="flex:none"><path d="M20 10c0 5.5-8 11-8 11S4 15.5 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+    <span style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block;flex:1 1 auto;">Informe seu CEP</span>
+    <svg class="ml-produto-topo-mobile-seta" viewBox="0 0 24 24" aria-hidden="true" style="flex:none"><path d="m9 18 6-6-6-6"/></svg>
+  </button>
+
+  <nav class="ml-produto-topo-mobile-painel" id="ml-produto-menu" hidden>
+    <a href="index.html" class="ml-menu-nav-item">
+      <i class="nav-icon-home"></i>
+      <span>Início</span>
+    </a>
+
+    
+        <details class="ml-menu-cats-details">
+      <summary class="ml-menu-nav-item ml-menu-cats-summary">
+        <i class="nav-icon-categories-mobile"></i>
+        <span>Categorias</span>
+        <svg class="ml-menu-cats-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#333" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </summary>
+      <div class="ml-menu-cats-lista">
+                <a href="busca/cat-eletrodom-sticos.html" class="ml-menu-cat-item">
+                      <span style="width:48px;height:48px;flex-shrink:0;border-radius:6px;background:#f5f5f5;display:inline-block;"></span>
+                    <span style="font-size:14px;color:#333;">Eletrodomésticos</span>
+        </a>
+                <a href="busca/cat-casa-m-veis-e-decora-o.html" class="ml-menu-cat-item">
+                      <span style="width:48px;height:48px;flex-shrink:0;border-radius:6px;background:#f5f5f5;display:inline-block;"></span>
+                    <span style="font-size:14px;color:#333;">Casa, Móveis e Decoração</span>
+        </a>
+                <a href="busca/cat-eletr-nicos-udio-e-v-deo.html" class="ml-menu-cat-item">
+                      <span style="width:48px;height:48px;flex-shrink:0;border-radius:6px;background:#f5f5f5;display:inline-block;"></span>
+                    <span style="font-size:14px;color:#333;">Eletrônicos, Áudio e Vídeo</span>
+        </a>
+                <a href="busca/cat-acess-rios-para-ve-culos.html" class="ml-menu-cat-item">
+                      <span style="width:48px;height:48px;flex-shrink:0;border-radius:6px;background:#f5f5f5;display:inline-block;"></span>
+                    <span style="font-size:14px;color:#333;">Acessórios para Veículos</span>
+        </a>
+                <a href="busca/cat-beb-s.html" class="ml-menu-cat-item">
+                      <span style="width:48px;height:48px;flex-shrink:0;border-radius:6px;background:#f5f5f5;display:inline-block;"></span>
+                    <span style="font-size:14px;color:#333;">Bebês</span>
+        </a>
+              </div>
+    </details>
+      </nav>
+</header>
+<header class="ml-topo ml-produto-topo-desktop">
+  <div class="ml-topo-inner">
+    <a href="#" onclick="openWithWhiteSpinnerLink(this);return false;" data-href="index.html" class="ml-logo">
+      <div class="ml-logo-icone">🤝</div>
+      <div class="ml-logo-texto">
+        <div>painel</div>
+        <div class="ml-logo-sub">livre</div>
+      </div>
+    </a>
+
+    <form class="ml-busca" method="get" action="busca.html">
+      <input type="text" name="q" placeholder="Buscar produtos, marcas e muito mais…" value="">
+      <button type="submit" aria-label="Buscar">🔍</button>
+    </form>
+
+    <div class="ml-usuario">
+              <a href="cadastro.html">Crie sua conta</a>
+        <a href="login.html">Entre</a>
+            <a href="carrinho.html" class="ml-carrinho" aria-label="Carrinho">
+        🛒      </a>
+    </div>
+  </div>
+
+  <div class="ml-cat">
+    <div class="ml-cat-inner">
+      <div style="margin-left:0;">
+      <button type="button" data-cep-trigger style="background:none;border:none;padding:0;cursor:pointer;display:flex;align-items:center;gap:4px;color:inherit;font:inherit;min-width:0;flex:0 1 auto;max-width:100%;white-space:nowrap;overflow:hidden;">
+        <span class="ml-cat-icone" style="flex:none">📍</span><span class="ml-cat-texto" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block;max-width:100%;padding-right:8px;">Informe seu CEP</span>
+      </button>
+      </div>
+      <a href="busca/cat-ofertas.html">Ofertas</a>
+              <a href="busca/cat-eletrodom-sticos.html" >Eletrodomésticos</a>
+              <a href="busca/cat-casa-m-veis-e-decora-o.html" >Casa, Móveis e Decoração</a>
+              <a href="busca/cat-eletr-nicos-udio-e-v-deo.html" >Eletrônicos, Áudio e Vídeo</a>
+              <a href="busca/cat-acess-rios-para-ve-culos.html" >Acessórios para Veículos</a>
+              <a href="busca/cat-beb-s.html" >Bebês</a>
+            <a href="busca/cat-vender.html">Vender</a>
+      <a href="busca/cat-ajuda.html">Ajuda</a>
+    </div>
+  </div>
+</header>
+
+<main class="ll-wrap">
+  <h1>Finalizar compra</h1>
+  <div class="ll-progress">
+    <div class="ll-progress-track"><div class="ll-progress-bar" id="ll-barra"></div></div>
+    <div class="ll-progress-labels">
+      <span id="ll-lbl1">1. Seus dados</span>
+      <span id="ll-lbl2">2. Entrega</span>
+      <span id="ll-lbl3">3. Pagamento</span>
+    </div>
+  </div>
+
+  <div class="ll-aviso">Demonstração local: seus dados são usados apenas para gerar a cobrança Pix na Medusa Payments. Cartão e boleto são simulados.</div>
+
+  <form id="ll-form" class="ll-form" novalidate>
+    <div class="ll-cart-grid">
+      <section>
+        <div class="ll-card ll-section">
+          <h2 class="ll-step"><span class="ll-step-num">1</span> Seus dados</h2>
+          <div class="ll-grid-2">
+            <div>
+              <label for="nome">Nome completo *</label>
+              <input id="nome" name="nome" autocomplete="name" required>
+            </div>
+            <div>
+              <label for="email">E-mail *</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+          </div>
+          <div class="ll-grid-2">
+            <div>
+              <label for="tel">Telefone</label>
+              <input id="tel" name="telefone" inputmode="tel" placeholder="(11) 99999-9999">
+            </div>
+            <div>
+              <label for="cpf">CPF *</label>
+              <input id="cpf" name="cpf" inputmode="numeric" placeholder="000.000.000-00">
+            </div>
+          </div>
+        </div>
+
+        <div class="ll-card ll-section">
+          <h2 class="ll-step"><span class="ll-step-num">2</span> Entrega</h2>
+          <div class="ll-grid-3">
+            <div>
+              <label for="cep">CEP *</label>
+              <input id="cep" name="cep" inputmode="numeric" placeholder="00000-000" required>
+            </div>
+            <div style="grid-column: span 2">
+              <label for="endereco">Endereço *</label>
+              <input id="endereco" name="endereco" placeholder="Rua, avenida..." required>
+            </div>
+          </div>
+          <div class="ll-grid-3">
+            <div>
+              <label for="numero">Número *</label>
+              <input id="numero" name="numero" required>
+            </div>
+            <div style="grid-column: span 2">
+              <label for="complemento">Complemento</label>
+              <input id="complemento" name="complemento" placeholder="Apto, bloco...">
+            </div>
+          </div>
+          <div class="ll-grid-3">
+            <div>
+              <label for="bairro">Bairro</label>
+              <input id="bairro" name="bairro">
+            </div>
+            <div>
+              <label for="cidade">Cidade *</label>
+              <input id="cidade" name="cidade" required>
+            </div>
+            <div>
+              <label for="uf">UF *</label>
+              <input id="uf" name="uf" maxlength="2" style="text-transform:uppercase" required>
+            </div>
+          </div>
+          <div style="margin-top:18px">
+            <label style="display:block;font-size:13px;color:#555;margin:0 0 8px">Forma de envio</label>
+            <div class="ll-metodos">
+              <label class="ll-metodo selecionado">
+                <input type="radio" name="envio" value="0" checked>
+                <span>Chegada em até 5 dias úteis<small>Frete grátis para todo o Brasil</small></span>
+                <b style="color:#00a650">Grátis</b>
+              </label>
+              <label class="ll-metodo">
+                <input type="radio" name="envio" value="19.9">
+                <span>Chegada amanhã<small>Envio expresso</small></span>
+                <b>R$ 19,90</b>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="ll-card ll-section">
+          <h2 class="ll-step"><span class="ll-step-num">3</span> Pagamento</h2>
+          <div class="ll-metodos">
+            <label class="ll-metodo selecionado">
+              <input type="radio" name="metodo" value="pix" checked>
+              <span>Pix<small>Aprovação imediata</small></span>
+            </label>
+            <label class="ll-metodo">
+              <input type="radio" name="metodo" value="cartao">
+              <span>Cartão de crédito<small>Em até 10x sem juros</small></span>
+            </label>
+            <label class="ll-metodo">
+              <input type="radio" name="metodo" value="boleto">
+              <span>Boleto bancário<small>Compensação em até 2 dias úteis</small></span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <aside>
+        <div class="ll-card">
+          <h2 class="ll-resumo-titulo">Resumo</h2>
+          <div id="ll-itens-mini" class="ll-mini" style="margin-bottom:14px"></div>
+          <div class="ll-linha"><span>Produtos</span><span id="ll-sub"></span></div>
+          <div class="ll-linha"><span>Frete</span><span id="ll-frete" style="color:#00a650;font-weight:600">Grátis</span></div>
+          <div class="ll-linha total"><span>Total</span><span id="ll-tot"></span></div>
+          <div class="ll-mini" id="ll-parc"></div>
+          <button class="ll-btn" type="submit">Continuar</button>
+          <div class="ll-erro" id="ll-erro">Preencha os campos obrigatórios.</div>
+        </div>
+      </aside>
+    </div>
+  </form>
+</main>
+
+<footer class="ml-footer">
+  <div class="ml-footer-top">
+    <div class="ml-footer-col">
+      <h4>Sobre</h4>
+      <a href="#">Sobre nós</a>
+      <a href="#">Sustentabilidade</a>
+      <a href="#">Tendências</a>
+      <a href="#">Investidores</a>
+    </div>
+    <div class="ml-footer-col">
+      <h4>Outros sites</h4>
+      <a href="#">Envios</a>
+      <a href="#">Pagamentos</a>
+      <a href="#">Créditos</a>
+      <a href="#">Anúncios</a>
+    </div>
+    <div class="ml-footer-col">
+      <h4>Ajuda</h4>
+      <a href="#">Comprar</a>
+      <a href="#">Vender</a>
+      <a href="#">Resolução de problemas</a>
+      <a href="#">Central de segurança</a>
+    </div>
+    <div class="ml-footer-col">
+      <h4>Minha conta</h4>
+      <a href="minha-conta.html">Meus dados</a>
+      <a href="meus-pedidos.html">Meus pedidos</a>
+      <a href="favoritos.html">Favoritos</a>
+      <a href="carrinho.html">Carrinho</a>
+    </div>
+  </div>
+  <div class="ml-footer-bottom">
+    <div>Copyright © 2026 Painel Ltda.</div>
+    <div>Todos os direitos reservados.</div>
+  </div>
+</footer>
+<footer class="ml-footer-mobile-prod">
+  <div class="ml-footer-mobile-prod-topo">
+    <img src="assets/ml-handshake-transparent.png/logo01.png" alt="">
+    <span>Compre e venda no Mercado Livre</span>
+  </div>
+  <div class="ml-footer-mobile-prod-links">
+    <div><span>Minha conta</span><span>Compras</span></div>
+    <div><span>Histórico</span><span>Ofertas do dia</span></div>
+    <div><span>Favoritos</span><span>Lojas oficiais</span></div>
+    <div><span>Categorias</span><span>Meli+</span></div>
+    <div><span>Contato</span><span>Vender</span></div>
+  </div>
+  <div class="ml-footer-mobile-prod-divisor"></div>
+  <div class="ml-footer-mobile-prod-legal">
+    <p>
+      <a href="#">Termos e condições</a>
+      <a href="#">Como cuidamos da sua privacidade</a>
+      <a href="#">Acessibilidade</a>
+      <a href="#">Informações sobre seguros</a>
+      <a href="#">Blog</a>
+      <a href="#">Afiliados</a>
+      <a href="#">Tendências</a>
+    </p>
+    <p>© 1999-2024 Ebazar.com.br LTDA.</p>
+  </div>
+</footer>
+<div class="ll-rodape">Clone local de demonstração — Pix real via Medusa Payments; cartão e boleto simulados.</div>
+
+<script>
+(function () {
+  var LL = window.LojaLocal;
+  var cart = LL.load();
+  if (!cart.length) { location.replace('carrinho.html'); return; }
+
+  document.getElementById('ll-itens-mini').innerHTML = cart.map(function (i) {
+    return '<div style="display:flex;justify-content:space-between;gap:8px;margin-bottom:6px">' +
+      '<span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + (i.qty || 1) + 'x ' + i.nome + '</span>' +
+      '<span style="white-space:nowrap">' + LL.brl(i.price * (i.qty || 1)) + '</span></div>';
+  }).join('');
+  var sub = LL.subtotal();
+  var frete = 0;
+  function recalc() {
+    var tot = sub + frete;
+    document.getElementById('ll-sub').textContent = LL.brl(sub);
+    var fEl = document.getElementById('ll-frete');
+    fEl.textContent = frete > 0 ? LL.brl(frete) : 'Grátis';
+    fEl.style.color = frete > 0 ? '' : '#00a650';
+    fEl.style.fontWeight = frete > 0 ? '400' : '600';
+    document.getElementById('ll-tot').textContent = LL.brl(tot);
+    document.getElementById('ll-parc').textContent = 'ou 10x de ' + LL.brl(tot / 10) + ' sem juros';
+  }
+  recalc();
+
+  document.querySelectorAll('input[name=envio]').forEach(function (r) {
+    r.addEventListener('change', function () {
+      frete = parseFloat(r.value) || 0;
+      recalc();
+    });
+  });
+
+  document.querySelectorAll('.ll-metodo input').forEach(function (inp) {
+    inp.addEventListener('change', function () {
+      document.querySelectorAll('.ll-metodo').forEach(function (m) { m.classList.remove('selecionado'); });
+      inp.closest('.ll-metodo').classList.add('selecionado');
+    });
+  });
+
+  var obrig = ['nome', 'email', 'cpf', 'cep', 'endereco', 'numero', 'cidade', 'uf'];
+  function cheio(id) {
+    var el = document.getElementById(id);
+    return !!(el && el.value.trim());
+  }
+  function updProgress() {
+    var n = obrig.filter(cheio).length;
+    var pct = Math.max(8, Math.round(n / obrig.length * 100));
+    document.getElementById('ll-barra').style.width = pct + '%';
+    var s1 = cheio('nome') && cheio('email');
+    var s2 = ['cep', 'endereco', 'numero', 'cidade', 'uf'].every(cheio);
+    document.getElementById('ll-lbl1').className = s1 ? 'on' : '';
+    document.getElementById('ll-lbl2').className = s2 ? 'on' : '';
+    document.getElementById('ll-lbl3').className = (s1 && s2) ? 'on' : '';
+  }
+  document.getElementById('ll-form').addEventListener('input', updProgress);
+  updProgress();
+
+  var elCep = document.getElementById('cep');
+  var elCpf = document.getElementById('cpf');
+  var elTel = document.getElementById('tel');
+
+  function mascaraCpf(v) {
+    v = v.replace(/\D/g, '').slice(0, 11);
+    return v.replace(/^(\d{3})(\d)/, '$1.$2')
+            .replace(/^(\d{3})\.(\d{3})(\d)/, '$1.$2.$3')
+            .replace(/\.(\d{3})(\d)/, '.$1-$2');
+  }
+  function mascaraTel(v) {
+    v = v.replace(/\D/g, '').slice(0, 11);
+    if (!v.length) return '';
+    if (v.length <= 2) return '(' + v;
+    if (v.length <= 6) return '(' + v.slice(0, 2) + ') ' + v.slice(2);
+    if (v.length <= 10) return '(' + v.slice(0, 2) + ') ' + v.slice(2, 6) + '-' + v.slice(6);
+    return '(' + v.slice(0, 2) + ') ' + v.slice(2, 7) + '-' + v.slice(7);
+  }
+
+  elCpf.addEventListener('input', function () { this.value = mascaraCpf(this.value); });
+  elTel.addEventListener('input', function () { this.value = mascaraTel(this.value); });
+  document.getElementById('uf').addEventListener('input', function () {
+    this.value = this.value.toUpperCase().replace(/[^A-Z]/g, '').slice(0, 2);
+  });
+  elCep.addEventListener('input', function () {
+    var c = this.value.replace(/\D/g, '').slice(0, 8);
+    this.value = c.length > 5 ? c.slice(0, 5) + '-' + c.slice(5) : c;
+    if (c.length === 8) buscaCep(c);
+  });
+
+  var cepCache = {};
+  function preencheCep(d) {
+    if (d.logradouro) document.getElementById('endereco').value = d.logradouro;
+    if (d.bairro) document.getElementById('bairro').value = d.bairro;
+    if (d.localidade) document.getElementById('cidade').value = d.localidade;
+    if (d.uf) document.getElementById('uf').value = d.uf;
+    document.getElementById('numero').focus();
+    updProgress();
+  }
+  function buscaCep(cep) {
+    if (cepCache[cep]) return preencheCep(cepCache[cep]);
+    fetch('https://viacep.com.br/ws/' + cep + '/json/')
+      .then(function (r) { return r.json(); })
+      .then(function (d) { if (d && !d.erro) { cepCache[cep] = d; preencheCep(d); } })
+      .catch(function () {});
+  }
+
+  document.getElementById('ll-form').addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var form = ev.target;
+    var ok = true;
+    obrig.forEach(function (id) {
+      var el = document.getElementById(id);
+      el.classList.remove('invalido');
+      if (!el.value.trim()) {
+        el.classList.add('invalido');
+        ok = false;
+      }
+    });
+    var cpfEl = document.getElementById('cpf');
+    if (cpfEl.value.replace(/\D/g, '').length !== 11) {
+      cpfEl.classList.add('invalido');
+      ok = false;
+    }
+    if (!ok) {
+      document.getElementById('ll-erro').textContent = 'Confira os campos destacados.';
+      document.getElementById('ll-erro').classList.add('on');
+      var first = form.querySelector('.invalido');
+      if (first) first.focus();
+      return;
+    }
+    document.getElementById('ll-erro').classList.remove('on');
+    var btn = form.querySelector('button[type=submit]');
+    btn.classList.add('loading');
+    btn.textContent = 'Processando...';
+
+    var pedido = {
+      id: 'ML' + String(Date.now()).slice(-8),
+      criado: new Date().toISOString(),
+      cliente: {
+        nome: document.getElementById('nome').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        telefone: document.getElementById('tel').value.trim(),
+        cpf: document.getElementById('cpf').value.trim()
+      },
+      endereco: {
+        cep: document.getElementById('cep').value.trim(),
+        endereco: document.getElementById('endereco').value.trim(),
+        numero: document.getElementById('numero').value.trim(),
+        complemento: document.getElementById('complemento').value.trim(),
+        bairro: document.getElementById('bairro').value.trim(),
+        cidade: document.getElementById('cidade').value.trim(),
+        uf: document.getElementById('uf').value.trim().toUpperCase()
+      },
+      metodo: (form.querySelector('input[name=metodo]:checked') || {}).value || 'pix',
+      envio: frete > 0 ? 'Chegada amanhã' : 'Chegada em até 5 dias úteis',
+      frete: frete,
+      itens: cart,
+      total: sub + frete
+    };
+    localStorage.setItem(LL.keys.order, JSON.stringify(pedido));
+    setTimeout(function () { location.href = 'pagamento.html'; }, 650);
+  });
+})();
+</script>
+</body>
+</html>
