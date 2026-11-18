@@ -32,7 +32,7 @@ estoura o limite de 100 MB de upload do plano Hobby da Vercel).
    | --- | --- |
    | `MEDUSA_API_KEY` | sua chave `mk_live_...` |
    | `MEDUSA_ACCOUNT_ID` | id da conta Medusa |
-   | `MEDUSA_BASE_URL` | `https://api.medusapayments.online/api/v1` |
+   | `MEDUSA_BASE_URL` | `https://api.medusapayments.com/v1` |
 
    A chave está em `/Users/cadu/checkout_local/.medusa.env` na sua máquina.
    **Não** commite esse arquivo (ele está no `.gitignore`).

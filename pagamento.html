@@ -324,7 +324,9 @@
         valor: pedido.total,
         clienteNome: cliente.nome || '',
         clienteEmail: cliente.email || '',
+        clienteTelefone: cliente.telefone || '',
         clienteCpf: cliente.cpf || '',
+        endereco: pedido.endereco || {},
         produto: descricaoPix()
       })
     }).then(function (r) {

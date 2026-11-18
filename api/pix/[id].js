@@ -1,6 +1,18 @@
 const { HttpError, medusa, json } = require('../../lib/medusa');
+const ID_RE = /^[0-9a-zA-Z-]{6,80}$/;
 
-const UUID_RE = /^[0-9a-fA-F-]{8,64}$/;
+const STATUS = {
+  waiting_payment: 'pendente',
+  pending: 'pendente',
+  processing: 'pendente',
+  paid: 'aprovado',
+  approved: 'aprovado',
+  refused: 'recusado',
+  refunded: 'estornado',
+  canceled: 'recusado',
+  cancelled: 'recusado',
+  chargedback: 'estornado'
+};
 
 module.exports = async function handler(req, res) {
   if (req.method !== 'GET') {
@@ -12,18 +24,19 @@ module.exports = async function handler(req, res) {
       const parts = String(req.url || '').split('?')[0].split('/');
       vid = decodeURIComponent(parts[parts.length - 1] || '');
     }
-    if (!UUID_RE.test(vid)) {
+    if (!ID_RE.test(vid)) {
       return json(res, 400, { ok: false, message: 'ID inválido' });
     }
-    const dados = await medusa('GET', '/pagamentos/' + encodeURIComponent(vid));
+    const dados = await medusa('GET', '/transactions/' + encodeURIComponent(vid));
+    const tx = dados.transaction || dados;
+    const bruto = String(tx.status || '').toLowerCase();
     return json(res, 200, {
       ok: true,
-      vendaId: dados.id,
-      status: dados.status,
-      valor: dados.valor,
-      valorLiquido: dados.valorLiquido,
-      metodo: dados.metodo,
-      criadoEm: dados.criadoEm
+      vendaId: String(tx.id || vid),
+      status: STATUS[bruto] || bruto,
+      valor: typeof tx.amount === 'number' ? tx.amount / 100 : tx.valor,
+      metodo: tx.paymentMethod || 'pix',
+      criadoEm: tx.createdAt || null
     });
   } catch (e) {
     if (e instanceof HttpError) {

@@ -11,7 +11,8 @@ module.exports = async function handler(req, res) {
     const nome = String(pedido.clienteNome || '').trim();
     const email = String(pedido.clienteEmail || '').trim();
     const produto = String(pedido.produto || 'Pedido').trim().slice(0, 200);
-    let idem = String(pedido.orderId || '').trim();
+    const telefone = digits(pedido.clienteTelefone);
+    const end = pedido.endereco || {};
 
     if (!(valor > 0)) throw new HttpError(400, 'Valor do pedido inválido', 'VALOR_INVALIDO');
     if (cpf.length !== 11 && cpf.length !== 14) {
@@ -19,43 +20,56 @@ module.exports = async function handler(req, res) {
     }
     if (!nome) throw new HttpError(400, 'Informe o nome do comprador', 'NOME_INVALIDO');
     if (email.indexOf('@') < 1) throw new HttpError(400, 'Informe um e-mail válido', 'EMAIL_INVALIDO');
-    if (idem.length < 8) idem = 'pedido-' + (idem || 'anon') + '-clone';
 
-    const util = {
-      clienteNome: nome,
-      clienteEmail: email,
-      clienteCpf: cpf,
-      produto,
-      valor,
-      metodo: 'PIX',
-      idempotencyKey: idem
+    const centavos = Math.round(valor * 100);
+    const uf = String(end.uf || '').trim().toUpperCase();
+    const payload = {
+      paymentMethod: 'pix',
+      amount: centavos,
+      customer: {
+        name: nome,
+        email,
+        phone: telefone.length >= 10 ? telefone : '11999999999',
+        document: { number: cpf, type: cpf.length === 14 ? 'cnpj' : 'cpf' }
+      },
+      items: [{
+        title: produto,
+        description: produto,
+        unitPrice: centavos,
+        quantity: 1,
+        tangible: true
+      }],
+      shipping: {
+        address: {
+          street: String(end.endereco || '').trim(),
+          streetNumber: String(end.numero || '').trim(),
+          zipCode: digits(end.cep),
+          neighborhood: String(end.bairro || '').trim(),
+          city: String(end.cidade || '').trim(),
+          state: uf,
+          country: 'BR',
+          complement: String(end.complemento || '').trim()
+        }
+      },
+      externalRef: String(pedido.orderId || '').trim() || undefined
     };
 
-    const resp = await medusa('POST', '/pagamentos', util);
-    const venda = resp.venda || {};
-    const dadosPix = venda.dadosPix || {};
-    const codigo = resp.pixCopiaECola || dadosPix.copiaECola;
-    let qr = resp.pixQrCode || dadosPix.qrCode;
-    const expira = resp.pixExpiresAt || dadosPix.expiresAt;
-
+    const resp = await medusa('POST', '/transactions', payload);
+    const tx = resp.transaction || {};
+    const codigo = tx.pix && tx.pix.qrcode;
     if (!codigo) {
-      throw new HttpError(502, resp.message || 'A Medusa não retornou o código Pix', 'PIX_INDISPONIVEL');
+      throw new HttpError(502, resp.message || resp.error || 'Não foi possível gerar o Pix. Tente novamente.', 'PIX_INDISPONIVEL');
     }
-    if (!qr) qr = await qrDataUrl(codigo);
-
+    const qr = await qrDataUrl(codigo);
     return json(res, 200, {
       ok: true,
-      vendaId: venda.id,
-      status: venda.status,
-      valor: venda.valor,
-      simulada: Boolean(venda.simulada),
-      idempotente: Boolean(resp.idempotente),
-      pixPendente: resp.pixPendente,
+      vendaId: String(tx.id || resp.insertId || ''),
+      status: tx.status || 'waiting_payment',
+      valor,
+      simulada: false,
       pixQrCode: qr,
       pixCopiaECola: codigo,
-      pixExpiresAt: expira,
-      valorLiquido: resp.valorLiquido || venda.valorLiquido,
-      taxaAdmin: resp.taxaAdmin
+      pixExpiresAt: tx.pix.expirationDate || null
     });
   } catch (e) {
     if (e instanceof HttpError) {
