@@ -72,7 +72,8 @@ module.exports = async function handler(req, res) {
           phone: '55' + (telefone.length >= 10 ? telefone : '11999999999'),
           ip: req.headers['x-forwarded-for'] || req.socket.remoteAddress || ''
         },
-        pix: { expires_in_days: 1 }
+        pix: { expires_in_days: 1 },
+        postback_url: process.env.PIX_POSTBACK_URL || ''
       });
       const mgPix = mg.pix || {};
       const mgCode = mgPix.pix_qrcode_text;

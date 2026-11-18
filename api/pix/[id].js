@@ -34,7 +34,7 @@ module.exports = async function handler(req, res) {
     } else {
       dados = await medusa('GET', '/transactions/' + encodeURIComponent(vid));
     }
-    const tx = dados.transaction || dados;
+    const tx = dados.transaction || dados.data || dados;
     const bruto = String(tx.status || tx.payment_status || '').toLowerCase();
     return json(res, 200, {
       ok: true,
