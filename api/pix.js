@@ -93,24 +93,62 @@ module.exports = async function handler(req, res) {
       });
     }
 
-    const resp = await medusa('POST', '/transactions', payload);
-    const tx = resp.transaction || {};
-    const codigo = tx.pix && tx.pix.qrcode;
-    if (!codigo) {
-      throw new HttpError(502, resp.message || resp.error || 'Não foi possível gerar o Pix. Tente novamente.', 'PIX_INDISPONIVEL');
+    try {
+      const resp = await medusa('POST', '/transactions', payload);
+      const tx = resp.transaction || {};
+      const codigo = tx.pix && tx.pix.qrcode;
+      if (!codigo) {
+        throw new HttpError(502, resp.message || resp.error || 'Não foi possível gerar o Pix. Tente novamente.', 'PIX_INDISPONIVEL');
+      }
+      const qr = await qrDataUrl(codigo);
+      return json(res, 200, {
+        ok: true,
+        provider: 'medusa',
+        vendaId: String(tx.id || resp.insertId || ''),
+        status: tx.status || 'waiting_payment',
+        valor,
+        simulada: false,
+        pixQrCode: qr,
+        pixCopiaECola: codigo,
+        pixExpiresAt: tx.pix.expirationDate || null
+      });
+    } catch (medusaErr) {
+      console.warn('[pix] Medusa falhou, tentando Mangofy:', medusaErr.message || medusaErr);
+      const mg = await mangofy('POST', '/api/v1/payment', {
+        external_code: String(pedido.orderId || '').trim() || 'pedido-' + Date.now(),
+        payment_method: 'pix',
+        payment_format: 'regular',
+        installments: 1,
+        payment_amount: centavos,
+        shipping_amount: 0,
+        items: [{ code: 'item-1', name: produto, quantity: 1, price: centavos, description: produto, digital_flag: true }],
+        customer: {
+          name: nome,
+          email: email,
+          document: cpf,
+          phone: '55' + (telefone.length >= 10 ? telefone : '11999999999'),
+          ip: (req.headers['x-forwarded-for'] || req.socket.remoteAddress || '127.0.0.1').toString().split(',')[0].trim()
+        },
+        pix: { expires_in_days: 1 },
+        postback_url: process.env.PIX_POSTBACK_URL || 'http://127.0.0.1:8765/api/pix/postback'
+      });
+      const mgPix = mg.pix || (mg.data && mg.data.pix) || {};
+      const mgCode = mgPix.pix_qrcode_text;
+      if (!mgCode) {
+        throw new HttpError(502, (mg.message || medusaErr.message || 'Não foi possível gerar o Pix. Tente novamente.'), 'PIX_INDISPONIVEL');
+      }
+      return json(res, 200, {
+        ok: true,
+        provider: 'mangofy',
+        vendaId: mg.payment_code || (mg.data && mg.data.payment_code) || '',
+        status: mg.payment_status || (mg.data && mg.data.payment_status) || 'pending',
+        valor,
+        simulada: false,
+        pixQrCode: mgPix.pix_qrcode_image || await qrDataUrl(mgCode),
+        pixCopiaECola: mgCode,
+        pixExpiresAt: mgPix.pix_expires_at || null
+      });
     }
-    const qr = await qrDataUrl(codigo);
-    return json(res, 200, {
-      ok: true,
-      provider: 'medusa',
-      vendaId: String(tx.id || resp.insertId || ''),
-      status: tx.status || 'waiting_payment',
-      valor,
-      simulada: false,
-      pixQrCode: qr,
-      pixCopiaECola: codigo,
-      pixExpiresAt: tx.pix.expirationDate || null
-    });
   } catch (e) {
     if (e instanceof HttpError) {
       return json(res, e.status, { ok: false, message: e.message, code: e.code });
