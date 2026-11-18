@@ -440,7 +440,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <div class="ml-prod-mob-variacoes">
               <div class="ml-prod-mob-variacao" data-tipo="Cor">
           <div class="var-label">Cor: <b class="var-selecionada">Branco Quente</b></div>
-          <div class="var-opcoes"><button type="button" class="var-opcao ativa var-txt" data-valor="Branco Quente" data-fotos='[]' data-preco="29.99" title="Branco Quente">Branco Quente</button><button type="button" class="var-opcao var-txt" data-valor="Branco Frio" data-fotos='[]' data-preco="32.9" title="Branco Frio">Branco Frio</button><button type="button" class="var-opcao var-txt" data-valor="Colorido" data-fotos='[]' data-preco="32.9" title="Colorido">Colorido</button></div>
+          <div class="var-opcoes"><button type="button" class="var-opcao ativa var-txt" data-valor="Branco Quente" data-fotos='[]' data-img="3" data-preco="29.99" title="Branco Quente">Branco Quente</button><button type="button" class="var-opcao var-txt" data-valor="Branco Frio" data-fotos='[]' data-img="2" data-preco="32.9" title="Branco Frio">Branco Frio</button><button type="button" class="var-opcao var-txt" data-valor="Colorido" data-fotos='[]' data-img="4" data-preco="32.9" title="Colorido">Colorido</button></div>
         </div>
           </div>
   <div class="ml-prod-mob-compra">
@@ -2379,6 +2379,12 @@ document.querySelectorAll('.ml-thumb').forEach(t => {
     initGallery(urls);
   };
 
+  window.irParaFotoGaleria = i => {
+    goTo(i);
+    const thumb = document.querySelectorAll('.ml-thumbs .ml-thumb')[i];
+    if (thumb) trocarImg(thumb.querySelector('img').src, thumb);
+  };
+
   // Inicializar com slides gerados pelo PHP
   const phpUrls = Array.from(track.querySelectorAll('.slide img')).map(img => img.src).filter(Boolean);
   if (phpUrls.length) initGallery(phpUrls);
@@ -2454,8 +2460,11 @@ document.querySelectorAll('.ml-thumb').forEach(t => {
         const label = bloco.querySelector('.var-selecionada');
         if (label) label.textContent = btn.dataset.valor || '';
       }
-      // só troca galeria para variação de Cor
-      if (bloco?.dataset.tipo === 'Cor') {
+      // vai para a foto correspondente à variação
+      if (btn.dataset.img) {
+        const idx = parseInt(btn.dataset.img, 10) - 1;
+        if (!isNaN(idx)) window.irParaFotoGaleria(idx);
+      } else if (bloco?.dataset.tipo === 'Cor') {
         try { trocarGaleriaVariacao(JSON.parse(btn.dataset.fotos || '[]')); } catch (e) {}
       }
     });
