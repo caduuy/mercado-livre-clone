@@ -1,4 +1,4 @@
-const { HttpError, medusa, json } = require('../../lib/medusa');
+const { HttpError, medusa, mangofy, json } = require('../../lib/medusa');
 const ID_RE = /^[0-9a-zA-Z-]{6,80}$/;
 
 const STATUS = {
@@ -7,6 +7,7 @@ const STATUS = {
   processing: 'pendente',
   paid: 'aprovado',
   approved: 'aprovado',
+  pending: 'pendente',
   refused: 'recusado',
   refunded: 'estornado',
   canceled: 'recusado',
@@ -27,16 +28,23 @@ module.exports = async function handler(req, res) {
     if (!ID_RE.test(vid)) {
       return json(res, 400, { ok: false, message: 'ID inválido' });
     }
-    const dados = await medusa('GET', '/transactions/' + encodeURIComponent(vid));
+    let dados;
+    if (vid.startsWith('pay') || vid.startsWith('mg')) {
+      dados = await mangofy('GET', '/api/v1/payment/' + encodeURIComponent(vid));
+    } else {
+      dados = await medusa('GET', '/transactions/' + encodeURIComponent(vid));
+    }
     const tx = dados.transaction || dados;
-    const bruto = String(tx.status || '').toLowerCase();
+    const bruto = String(tx.status || tx.payment_status || '').toLowerCase();
     return json(res, 200, {
       ok: true,
-      vendaId: String(tx.id || vid),
+      vendaId: String(tx.id || tx.payment_code || vid),
       status: STATUS[bruto] || bruto,
-      valor: typeof tx.amount === 'number' ? tx.amount / 100 : tx.valor,
-      metodo: tx.paymentMethod || 'pix',
-      criadoEm: tx.createdAt || null
+      valor: typeof tx.amount === 'number' ? tx.amount / 100
+             : typeof tx.payment_amount === 'number' ? tx.payment_amount / 100
+             : tx.valor,
+      metodo: tx.paymentMethod || tx.payment_method || 'pix',
+      criadoEm: tx.createdAt || tx.created_at || null
     });
   } catch (e) {
     if (e instanceof HttpError) {

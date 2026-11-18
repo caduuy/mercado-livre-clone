@@ -66,3 +66,17 @@ python3 checkout_local/servidor.py --clone /Users/cadu/achados_clone --port 8765
 - A API Key foi colada em um chat; recomendo **rotacionar** a chave no painel da
   Medusa e atualizar a variável na Vercel.
 - Conteúdo e imagens pertencem ao site original; use apenas para estudo/demo.
+
+## Mangofy (Pix até R$ 400)
+
+O roteador envia para a **Mangofy** quando o total do pedido é **≤ R$ 400** (configurável via `PIX_MAX_MANGOFY`).
+Acima disso, cai na **Medusa**.
+
+| Variável | Descrição |
+|---|---|
+| `MANGOFY_API_KEY` | Chave da credencial de plataforma (header Authorization) |
+| `MANGOFY_STORE_CODE` | Store Code gerado em Integrações > API customizada |
+| `MANGOFY_BASE_URL` | URL base (padrão: `https://whitelabel-checkout.test`) |
+| `PIX_MAX_MANGOFY` | Limite em reais (padrão: 400) |
+
+Doc: https://app.mangofy.com.br/checkout/doc

@@ -1,4 +1,4 @@
-const { HttpError, medusa, qrDataUrl, json, digits, readBody } = require('../lib/medusa');
+const { HttpError, medusa, mangofy, routeProvider, qrDataUrl, json, digits, readBody } = require('../lib/medusa');
 
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -54,6 +54,44 @@ module.exports = async function handler(req, res) {
       externalRef: String(pedido.orderId || '').trim() || undefined
     };
 
+    const provider = routeProvider(valor);
+
+    if (provider === 'mangofy') {
+      const mg = await mangofy('POST', '/api/v1/payment', {
+        external_code: String(pedido.orderId || '').trim() || 'pedido-' + Date.now(),
+        payment_method: 'pix',
+        payment_format: 'regular',
+        installments: 1,
+        payment_amount: centavos,
+        shipping_amount: 0,
+        items: [{ code: 'item-1', name: produto, quantity: 1, price: centavos, description: produto, digital_flag: true }],
+        customer: {
+          name: nome,
+          email: email,
+          document: cpf,
+          phone: '55' + (telefone.length >= 10 ? telefone : '11999999999'),
+          ip: req.headers['x-forwarded-for'] || req.socket.remoteAddress || ''
+        },
+        pix: { expires_in_days: 1 }
+      });
+      const mgPix = mg.pix || {};
+      const mgCode = mgPix.pix_qrcode_text;
+      if (!mgCode) {
+        throw new HttpError(502, mg.message || 'Mangofy não retornou o código Pix', 'PIX_INDISPONIVEL');
+      }
+      return json(res, 200, {
+        ok: true,
+        provider: 'mangofy',
+        vendaId: mg.payment_code || '',
+        status: mg.payment_status || 'pending',
+        valor,
+        simulada: false,
+        pixQrCode: mgPix.pix_qrcode_image || await qrDataUrl(mgCode),
+        pixCopiaECola: mgCode,
+        pixExpiresAt: mgPix.pix_expires_at || null
+      });
+    }
+
     const resp = await medusa('POST', '/transactions', payload);
     const tx = resp.transaction || {};
     const codigo = tx.pix && tx.pix.qrcode;
@@ -63,6 +101,7 @@ module.exports = async function handler(req, res) {
     const qr = await qrDataUrl(codigo);
     return json(res, 200, {
       ok: true,
+      provider: 'medusa',
       vendaId: String(tx.id || resp.insertId || ''),
       status: tx.status || 'waiting_payment',
       valor,
