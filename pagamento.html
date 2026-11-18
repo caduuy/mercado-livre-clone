@@ -331,7 +331,8 @@
       return r.json().then(function (d) { return { ok: r.ok, d: d }; });
     }).then(function (res) {
       if (!res.ok || !res.d || !res.d.ok) {
-        throw new Error((res.d && res.d.message) || 'Falha ao gerar o Pix');
+        console.warn('[pix]', (res.d && res.d.message) || 'Falha ao gerar o Pix');
+        throw new Error('Não foi possível gerar o Pix. Tente novamente.');
       }
       pedido.pix = {
         vendaId: res.d.vendaId,
@@ -348,10 +349,8 @@
       carregando.hidden = true;
       conteudo.hidden = false;
       conteudo.innerHTML =
-        '<div class="ll-pix-erro">' + (err.message || 'Falha ao gerar o Pix') + '</div>' +
-        '<button class="ll-btn" id="ll-pix-retry">Tentar novamente</button>' +
-        '<p class="ll-mini" style="margin-top:10px">Se estiver abrindo o clone, use o ' +
-        '<code>servidor.py</code> (o http.server puro não cria cobranças).</p>';
+        '<div class="ll-pix-erro">' + (err.message || 'Não foi possível gerar o Pix. Tente novamente.') + '</div>' +
+        '<button class="ll-btn" id="ll-pix-retry">Tentar novamente</button>';
       document.getElementById('ll-pix-retry').addEventListener('click', function () {
         renderPix(host);
       });
