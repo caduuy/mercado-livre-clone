@@ -308,7 +308,7 @@
       '<div class="ll-pix-box">' +
         '<div id="ll-pix-carregando" class="ll-pix-carregando">' +
           '<div class="ll-pix-spinner"></div>' +
-          '<p class="ll-mini">Gerando cobrança Pix na Medusa Payments...</p>' +
+          '<p class="ll-mini">Gerando Pix...</p>' +
         '</div>' +
         '<div id="ll-pix-conteudo" hidden></div>' +
       '</div>';
@@ -382,7 +382,7 @@
       '<div class="ll-linha" style="margin-top:16px"><span>Valor</span><span><b>' + LL.brl(d.valor) + '</b></span></div>' +
       '<div class="ll-linha"><span>Cobrança</span><span class="ll-mini">' + (d.vendaId || '—') + '</span></div>' +
       '<button class="ll-btn" id="ll-pago">Já fiz o pagamento</button>' +
-      '<p class="ll-mini" id="ll-pix-status" style="text-align:center;margin-top:10px">Aguardando a confirmação da Medusa...</p>';
+      '<p class="ll-mini" id="ll-pix-status" style="text-align:center;margin-top:10px">Aguardando a confirmação do pagamento...</p>';
 
     var resta = 15 * 60;
     if (d.pixExpiresAt) {
@@ -457,7 +457,7 @@
           }
           if (botao) { botao.classList.remove('loading'); botao.disabled = false; botao.textContent = 'Já fiz o pagamento'; }
         } else {
-          if (statusEl) statusEl.textContent = 'Aguardando a confirmação da Medusa...';
+          if (statusEl) statusEl.textContent = 'Aguardando a confirmação do pagamento...';
           if (manual) LL.toast('Ainda não identificamos o pagamento. O QR segue válido.');
           if (botao) { botao.classList.remove('loading'); botao.disabled = false; botao.textContent = 'Já fiz o pagamento'; }
         }
