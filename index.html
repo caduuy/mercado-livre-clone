@@ -387,6 +387,17 @@ document.addEventListener('DOMContentLoaded', function () {
   <!-- Barra de acesso rápido -->
   <div style="margin-bottom:12px;overflow:hidden;">
     <ul style="display:flex;gap:6px;overflow-x:auto;overflow-y:hidden;padding:4px 0 6px;margin:0;list-style:none;scrollbar-width:none;-webkit-overflow-scrolling:touch;">
+      <li style="flex:0 0 auto;text-align:center;">
+        <a href="busca/cat-natal.html" style="display:block;text-decoration:none;color:inherit;">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;min-width:60px;">
+            <div style="width:48px;height:48px;border-radius:50%;overflow:hidden;background:#fff;display:flex;align-items:center;justify-content:center;border:1px solid #ededed;">
+              <img src="assets/natal/icone-guirlanda.png" style="width:44px;height:44px;object-fit:contain;" alt="Natal">
+            </div>
+            <span style="font-size:10px;color:#c62828;font-weight:700;white-space:nowrap;">Natal</span>
+          </div>
+        </a>
+      </li>
+
       <li style="flex:0 0 auto;text-align:center;cursor:pointer;">
         <div style="display:flex;flex-direction:column;align-items:center;gap:4px;min-width:60px;">
           <div style="width:48px;height:48px;border-radius:50%;overflow:hidden;background:#fff;display:flex;align-items:center;justify-content:center;">
@@ -438,88 +449,6 @@ document.addEventListener('DOMContentLoaded', function () {
     </ul>
   </div>
 
-<style>
-#especial-natal{margin:0 0 14px;border-radius:14px;overflow:hidden;background:radial-gradient(1200px 400px at 15% -20%,rgba(255,255,255,.14),transparent 60%),radial-gradient(900px 300px at 90% 0%,rgba(255,214,102,.18),transparent 55%),linear-gradient(135deg,#0b3d2e 0%,#0f5132 55%,#0a3a2b 100%);box-shadow:0 8px 24px rgba(0,0,0,.12);}
-#especial-natal .en-wrap{padding:18px 14px 16px;}
-#especial-natal .en-head{margin:0 0 14px;color:#fff;}
-#especial-natal .en-badge{display:inline-flex;align-items:center;gap:6px;background:#d32f2f;color:#fff;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:999px;margin-bottom:8px;}
-#especial-natal h2{margin:0;font-size:22px;line-height:1.2;font-weight:700;color:#fff;}
-#especial-natal .en-sub{margin:6px 0 0;font-size:13px;line-height:1.4;color:rgba(255,255,255,.78);}
-#especial-natal .en-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
-#especial-natal .en-card{display:flex;flex-direction:column;background:#fff;border-radius:10px;overflow:hidden;text-decoration:none;color:inherit;min-width:0;transition:transform .15s ease,box-shadow .15s ease;}
-#especial-natal .en-card:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.18);}
-#especial-natal .en-imgwrap{aspect-ratio:1/1;background:#fff;padding:8px;box-sizing:border-box;}
-#especial-natal .en-imgwrap img{width:100%;height:100%;object-fit:contain;display:block;}
-#especial-natal .en-body{padding:0 9px 9px;display:flex;flex-direction:column;gap:4px;min-width:0;flex:1;}
-#especial-natal .en-title{font-size:12px;line-height:1.3;color:#333;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:31px;}
-#especial-natal .en-old{font-size:11px;color:#999;text-decoration:line-through;line-height:1;}
-#especial-natal .en-now{display:flex;align-items:baseline;flex-wrap:wrap;gap:5px;}
-#especial-natal .en-price{font-size:17px;font-weight:700;color:#111;line-height:1;}
-#especial-natal .en-off{font-size:10px;font-weight:700;color:#00a650;}
-#especial-natal .en-ship{font-size:11px;font-weight:600;color:#00a650;margin-top:auto;}
-@media(min-width:640px){#especial-natal .en-grid{grid-template-columns:repeat(3,minmax(0,1fr));}#especial-natal .en-wrap{padding:22px 18px;}#especial-natal h2{font-size:26px;}}
-@media(min-width:1024px){#especial-natal .en-grid{grid-template-columns:repeat(6,minmax(0,1fr));}#especial-natal .en-title{font-size:11.5px;}}
-</style>
-<section id="especial-natal">
-  <div class="en-wrap">
-    <div class="en-head">
-      <div class="en-badge"><img src="assets/natal/icone-guirlanda.png" alt="" style="width:22px;height:22px;object-fit:contain;">Especial de Natal</div>
-      <h2>Deixe a casa no clima das festas</h2>
-      <p class="en-sub">Guirlanda, cortina de luzes, árvore, taças, copos e globo de neve — com frete grátis.</p>
-      <a href="busca/cat-natal.html" onclick="openWithWhiteSpinner(this);return false;" data-href="busca/cat-natal.html" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;background:#fff;color:#0f5132;font-size:13px;font-weight:700;padding:9px 14px;border-radius:999px;text-decoration:none;"><img src="assets/natal/icone-guirlanda.png" alt="" style="width:20px;height:20px;object-fit:contain;">Ver categoria Natal <span aria-hidden="true">›</span></a>
-    </div>
-    <div class="en-grid">
-      <a class="en-card" href="#" data-href="produto/127.html" onclick="openWithWhiteSpinner(this);return false;">
-        <div class="en-imgwrap"><img src="assets/produtos/pisca-cortina-300-leds/01.jpg" alt="Pisca Cortina 300 LEDs 3x3m USB" loading="lazy"></div>
-        <div class="en-body">
-          <div class="en-title">Pisca Cortina 300 LEDs 3x3m USB</div>
-          <div class="en-prices"><s class="en-old">R$ 62,34</s><div class="en-now"><span class="en-price">R$ 29,99</span><span class="en-off">52% OFF</span></div></div>
-          <div class="en-ship">Frete grátis</div>
-        </div>
-      </a>
-      <a class="en-card" href="#" data-href="produto/128.html" onclick="openWithWhiteSpinner(this);return false;">
-        <div class="en-imgwrap"><img src="assets/produtos/kit-12-copos-vidro-aruba-natal/01.jpg" alt="Kit 12 Copos de Vidro Aruba Natal 465ml" loading="lazy"></div>
-        <div class="en-body">
-          <div class="en-title">Kit 12 Copos de Vidro Aruba Natal 465ml</div>
-          <div class="en-prices"><s class="en-old">R$ 159,90</s><div class="en-now"><span class="en-price">R$ 139,90</span><span class="en-off">13% OFF</span></div></div>
-          <div class="en-ship">Frete grátis</div>
-        </div>
-      </a>
-      <a class="en-card" href="#" data-href="produto/129.html" onclick="openWithWhiteSpinner(this);return false;">
-        <div class="en-imgwrap"><img src="assets/produtos/arvore-natal-1-80m-750-galhos/01.jpg" alt="Árvore de Natal 1,80m com 750 Galhos" loading="lazy"></div>
-        <div class="en-body">
-          <div class="en-title">Árvore de Natal 1,80m com 750 Galhos</div>
-          <div class="en-prices"><s class="en-old">R$ 425,09</s><div class="en-now"><span class="en-price">R$ 121,99</span><span class="en-off">71% OFF</span></div></div>
-          <div class="en-ship">Frete grátis</div>
-        </div>
-      </a>
-      <a class="en-card" href="#" data-href="produto/130.html" onclick="openWithWhiteSpinner(this);return false;">
-        <div class="en-imgwrap"><img src="assets/produtos/tacas-vinho-natal-3d/01.webp" alt="Conjunto de Taças de Vinho Natal 3D" loading="lazy"></div>
-        <div class="en-body">
-          <div class="en-title">Conjunto de Taças de Vinho Natal 3D</div>
-          <div class="en-prices"><div class="en-now"><span class="en-price">R$ 126,29</span></div></div>
-          <div class="en-ship">Frete grátis</div>
-        </div>
-      </a>
-      <a class="en-card" href="#" data-href="produto/131.html" onclick="openWithWhiteSpinner(this);return false;">
-        <div class="en-imgwrap"><img src="assets/produtos/guirlanda-natalina-bolas-vermelhas/01.webp" alt="Guirlanda Natalina Grande Bolas Vermelhas" loading="lazy"></div>
-        <div class="en-body">
-          <div class="en-title">Guirlanda Natalina Grande Bolas Vermelhas</div>
-          <div class="en-prices"><div class="en-now"><span class="en-price">R$ 260,00</span></div></div>
-          <div class="en-ship">Frete grátis</div>
-        </div>
-      </a>
-      <a class="en-card" href="#" data-href="produto/132.html" onclick="openWithWhiteSpinner(this);return false;">
-        <div class="en-imgwrap"><img src="assets/produtos/globo-neve-vidro-8cm/01.jpg" alt="Globo de Neve Vidro 8cm" loading="lazy"></div>
-        <div class="en-body">
-          <div class="en-title">Globo de Neve Vidro 8cm</div>
-          <div class="en-prices"><s class="en-old">R$ 49,99</s><div class="en-now"><span class="en-price">R$ 27,99</span><span class="en-off">44% OFF</span></div></div>
-          <div class="en-ship">Frete grátis</div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
 
   <section class="ml-recomendados" style="padding:0;background:transparent;box-shadow:none;max-width:none;margin:0;">
     <div class="ands-carousel-wrap" style="overflow:hidden;">
