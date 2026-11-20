@@ -80,3 +80,38 @@ Acima disso, cai na **Medusa**.
 | `PIX_MAX_MANGOFY` | Limite em reais (padrão: 400) |
 
 Doc: https://app.mangofy.com.br/checkout/doc
+
+## Meta Pixel / Conversions API
+
+O Pixel `1126035016737080` está instalado em **todas as 511 páginas** do site.
+Eventos disparados:
+
+| Evento | Onde |
+|---|---|
+| `PageView` | todas as páginas |
+| `ViewContent` | páginas de produto |
+| `Search` | páginas de busca |
+| `ViewCart` | carrinho |
+| `AddToCart` | clique em comprar/adicionar |
+| `InitiateCheckout` | abertura do checkout |
+| `AddPaymentInfo` | envio do checkout com a forma de pagamento |
+| `Purchase` | pedido confirmado (uma vez por pedido) |
+
+O navegador envia uma cópia para `/api/meta-capi` (Conversions API) com o
+mesmo `event_id`, para deduplicação. O token **não** fica no HTML.
+
+| Variável | Descrição |
+|---|---|
+| `META_PIXEL_ID` | `1126035016737080` |
+| `META_CAPI_TOKEN` | token da Conversions API (nunca commitar) |
+| `META_GRAPH_VERSION` | versão da Graph API (padrão `v21.0`) |
+| `META_TEST_EVENT_CODE` | opcional, só para testar no Events Manager |
+
+Sem `META_CAPI_TOKEN` o endpoint responde `204` e o pixel do navegador continua
+funcionando normalmente. Localmente, as variáveis ficam em `.env.local`
+(ignorado pelo Git). Na Vercel, cadastre em **Settings → Environment Variables**.
+
+> O Pixel mede o tráfego do **site**. O Facebook Marketplace não aceita código
+> de pixel dentro dos anúncios; para catálogo de produtos no Marketplace é
+> preciso criar um feed no Commerce Manager.
+

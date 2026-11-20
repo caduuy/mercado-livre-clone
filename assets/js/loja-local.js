@@ -193,6 +193,7 @@
   function comprar(btn) {
     var item = readProduct();
     add(item);
+    try { if (window.MetaPixel) window.MetaPixel.addToCart(item); } catch (e) {}
     try { sessionStorage.setItem('ll_added', '1'); } catch (e) {}
     var overlay = document.getElementById('compraLoading');
     var titulo = document.getElementById('compraLoadingTitulo');

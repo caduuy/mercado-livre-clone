@@ -8,6 +8,25 @@
 <link rel="stylesheet" href="assets/css/loja-local.css?v=20261118">
 <script src="assets/js/topo-site.js"></script>
 <script src="assets/js/loja-local.js" data-root=""></script>
+<script src="assets/js/qrcode.min.js"></script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1126035016737080');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1126035016737080&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<script src="assets/js/meta-pixel.js" defer></script>
 </head>
 <body class="ll-body">
 <header class="ml-produto-topo-mobile">
@@ -204,6 +223,7 @@
 
 <script>
 (function () {
+  var PIX_API = 'https://mercado-pix.ce855272.workers.dev';
   var LL = window.LojaLocal;
   var pedido = null;
   try { pedido = JSON.parse(localStorage.getItem(LL.keys.order)); } catch (e) {}
@@ -316,7 +336,7 @@
 
   function gerarPix(host) {
     var cliente = pedido.cliente || {};
-    fetch('/api/pix', {
+    fetch(PIX_API + '/api/pix', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -368,8 +388,10 @@
 
     var qr = d.pixQrCode
       ? '<div class="ll-pix-qr-wrap"><img class="ll-pix-qr" src="' + d.pixQrCode + '" alt="QR Code Pix"></div>'
-      : '<div class="ll-pix-qr-wrap">' + qrSvg(pedido.total * 13 + 7) + '</div>' +
-        '<p class="ll-mini" style="color:#a15c00">Venda em modo teste: sem QR real, nada é cobrado.</p>';
+      : (d.pixCopiaECola
+          ? '<div class="ll-pix-qr-wrap"><div id="ll-pix-qr-real" style="display:flex;align-items:center;justify-content:center;width:220px;height:220px;background:#fff"></div></div>'
+          : '<div class="ll-pix-qr-wrap">' + qrSvg(pedido.total * 13 + 7) + '</div>' +
+            '<p class="ll-mini" style="color:#a15c00">Venda em modo teste: sem QR real, nada é cobrado.</p>');
 
     conteudo.innerHTML =
       '<p class="ll-timer">O código expira em <b id="ll-tempo">15:00</b></p>' +
@@ -383,6 +405,13 @@
       '<div class="ll-linha"><span>Cobrança</span><span class="ll-mini">' + (d.vendaId || '—') + '</span></div>' +
       '<button class="ll-btn" id="ll-pago">Já fiz o pagamento</button>' +
       '<p class="ll-mini" id="ll-pix-status" style="text-align:center;margin-top:10px">Aguardando a confirmação do pagamento...</p>';
+
+    if (!d.pixQrCode && d.pixCopiaECola && window.QRCode) {
+      var alvoQr = document.getElementById('ll-pix-qr-real');
+      if (alvoQr) {
+        new QRCode(alvoQr, { text: d.pixCopiaECola, width: 220, height: 220, correctLevel: window.QRCode.CorrectLevel ? QRCode.CorrectLevel.M : undefined });
+      }
+    }
 
     var resta = 15 * 60;
     if (d.pixExpiresAt) {
@@ -431,7 +460,7 @@
 
   function consultarPix(vendaId, manual, botao) {
     var statusEl = document.getElementById('ll-pix-status');
-    fetch('/api/pix/' + encodeURIComponent(vendaId))
+    fetch(PIX_API + '/api/pix/' + encodeURIComponent(vendaId))
       .then(function (r) { return r.json(); })
       .then(function (d) {
         if (!d || !d.ok) {
