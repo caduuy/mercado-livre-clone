@@ -1,0 +1,34 @@
+GUIA RAPIDO — Deploy no HostKoala (cPanel)
+==========================================
+
+1. Entre no cPanel do HostKoala (dados enviados na ativação da conta).
+
+2. Abra: Arquivos -> Gerenciador de Arquivos (File Manager).
+
+3. Entre na pasta "public_html"
+   - Site principal: /public_html
+   - Subdominio/extra: entre na pasta correspondente ao dominio.
+
+4. (Se houver arquivos antigos/default nessa pasta, apague antes.)
+
+5. Clique em "Enviar/Upload" e suba o arquivo mercado-livre-HOSTKOALA.zip.
+
+6. Volte ao File Manager, clique com o botao direito no zip -> "Extract".
+   - Os arquivos vao direto para a raiz (index.html, produto/, busca/, assets/).
+   - Depois de extrair, pode apagar o .zip.
+
+7. SSL: no cPanel, abra "SSL/TLS Status" e clique em "Run AutoSSL".
+   Depois, se quiser forcar HTTPS, use "Force HTTPS Redirect" em Dominios.
+
+PRONTO. Nao precisa de PHP, Node, banco de dados nem variavel de ambiente.
+O Pix e o Pixel rodam no servico ja publicado:
+   https://mercado-pix.ce855272.workers.dev
+
+CHECKLIST POS-DEPLOY
+--------------------
+1. Abrir o site (home) -> logos e banners carregam.
+2. Abrir /produto/142.html -> fotos das canecas + preco R$ 59,88.
+3. Comprar -> checkout -> Pix: QR e codigo copia-e-cola aparecem (cobranca real).
+4. Status do servico do Pix:
+   https://mercado-pix.ce855272.workers.dev/api/health
+   (deve responder {"ok":true,...,"mangofy":true})

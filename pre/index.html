@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Controle a sua privacidade</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;background:#fff;font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:0 7%;padding-top:2vh}
+  .card{
+    width:100%;max-width:400px;background:#fff;border:1px solid #fadcdc;border-top:0;
+    border-radius:20px;position:relative;overflow:hidden;
+    padding:46px 24px 46px;
+    box-shadow:0 18px 50px rgba(0,0,0,.18),0 0 90px rgba(0,0,0,.06);
+  }
+  .card::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:#d90000}
+  h1{color:#d90000;font-size:19px;font-weight:700;letter-spacing:-.2px;line-height:1.2;margin-bottom:14px}
+  p{color:#333;font-size:15.5px;line-height:1.28;margin-bottom:12px}
+  a{color:#d90000;font-size:12.5px;text-decoration:none;display:inline-block;margin-bottom:23px}
+  .btns{display:flex;gap:8px}
+  button{flex:1;height:47px;border-radius:9px;font:700 12.5px/1.15 Arial,Helvetica,sans-serif;cursor:pointer;padding:0 6px}
+  .opts{background:#fff;color:#333;border:1.3px solid #d4d4d4}
+  .rej{background:#fff;color:#b30000;border:1.3px solid #d90000}
+  .acc{background:#e00000;color:#fff;border:1.3px solid #e00000}
+</style>
+</head>
+<body>
+<div class="wrap" id="wrap">
+  <div class="card" role="dialog" aria-labelledby="t">
+    <h1 id="t">Controle a sua privacidade</h1>
+    <p>O nosso site utiliza cookies para melhorar a navegação.</p>
+    <a href="#">Aviso de Privacidade - Termos de uso</a>
+    <div class="btns">
+      <button class="opts">As minhas opções</button>
+      <button class="rej">Rejeitar</button>
+      <button class="acc">Aceitar</button>
+    </div>
+  </div>
+</div>
+<script>
+  // captura UTMs do tráfego pago antes de seguir pro produto
+  (function(){
+    var p=new URLSearchParams(location.search),keys=['utm_source','utm_medium','utm_campaign','utm_term','utm_content'];
+    var v={};keys.forEach(function(k){if(p.get(k))v[k]=p.get(k);});
+    if(Object.keys(v).length){
+      var exp=new Date();exp.setDate(exp.getDate()+30);
+      document.cookie='ml_utms='+encodeURIComponent(JSON.stringify(v))+';expires='+exp.toUTCString()+';path=/;SameSite=Lax';
+    }
+  })();
+</script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1126035016737080');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1126035016737080&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<script src="../assets/js/meta-pixel.js" defer></script>
+<script>
+  // /pre — qualquer botao (ou 8s sem decisao) vai pro produto 127
+  const DESTINO = "/produto/127.html";
+  function vai(){document.getElementById('wrap').remove();location.href=DESTINO;}
+  document.querySelectorAll('button').forEach(b=>b.onclick=vai);
+  setTimeout(()=>{if(document.getElementById('wrap'))location.href=DESTINO;},8000);
+</script>
+</body>
+</html>
